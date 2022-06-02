@@ -1,0 +1,23 @@
+body {
+  background-color: #fafafa;
+}
+
+.container {
+  margin-top: 1rem;
+}
+
+.card {
+  margin-top: 1rem;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.pill {
+  margin-right: 0.25rem;
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.15rem;
+  background-color: gainsboro;
+}
