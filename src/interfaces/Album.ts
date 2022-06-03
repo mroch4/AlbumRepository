@@ -4,4 +4,6 @@ export interface Album {
   title: string;
   year: number;
   tags: string[] | undefined;
+  coverUrl: string;
+  spotifyUrl: string | null;
 }

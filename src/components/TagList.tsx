@@ -1,15 +1,15 @@
-import React from "react";
-import { Album } from "../interfaces/Album";
+import React, { FC } from "react";
+import { Tags } from "../interfaces/Tags";
 import Tag from "./Tag";
 
-function TagList(album: Album): JSX.Element {
+const TagList: FC<Tags> = ({ tags }): JSX.Element => {
   return (
     <div className="d-flex flex-row">
-      {album.tags?.map((tag) => (
-        <Tag key={tag} />
+      {tags?.map((tag) => (
+        <Tag key={tag} tag={tag} />
       ))}
     </div>
   );
-}
+};
 
 export default TagList;

@@ -2,6 +2,10 @@ body {
   background-color: #fafafa;
 }
 
+li {
+  cursor: pointer;
+}
+
 .container {
   margin-top: 1rem;
 }
@@ -13,6 +17,13 @@ body {
   border-radius: 0.5rem;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+}
+
+.album-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 0.5rem;
 }
 
 .pill {
