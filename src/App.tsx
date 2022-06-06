@@ -1,10 +1,10 @@
 import React from "react";
-import List from "./components/CardList";
+import Layout from "./components/Layout";
 
 function App(): JSX.Element {
   return (
     <div className="container">
-      <List />
+      <Layout />
     </div>
   );
 }

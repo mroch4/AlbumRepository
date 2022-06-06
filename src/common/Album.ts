@@ -3,7 +3,7 @@ export interface Album {
   artist: string;
   title: string;
   year: number;
-  tags: string[] | undefined;
-  coverUrl: string;
+  tags: string[] | null;
+  coverUrl: string | null;
   spotifyUrl: string | null;
 }

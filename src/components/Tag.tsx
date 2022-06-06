@@ -1,5 +1,8 @@
 import React, { FC } from "react";
-import { SingleTag } from "../interfaces/SingleTag";
+
+interface SingleTag {
+  tag: string;
+}
 
 const Tag: FC<SingleTag> = ({ tag }): JSX.Element => {
   return <span className="pill">{tag}</span>;
