@@ -1,9 +1,10 @@
 export const TAGS = {
-  0: "pre",
-  1: "cd",
-  2: "media markt",
-  3: "prezent",
-  4: "biedronka",
-  5: "online",
-  6: "spotify",
+  0: "none",
+  1: "pre",
+  2: "cd",
+  3: "media markt",
+  4: "prezent",
+  5: "biedronka",
+  6: "online",
+  7: "spotify",
 };

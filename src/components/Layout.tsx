@@ -18,7 +18,7 @@ const TopSection = (): JSX.Element => {
   const [searchByYear, setSearchByYear] = useState(SETTINGS.SEARCHBYYEAR_ONLOAD);
   const [sortingOption, setSortingOption] = useState(SORTING_OPTIONS.YEAR_DESCENDING);
   const [currentPage, setCurrentPage] = useState(0);
-  const [currentTag, setCurrentTag] = useState<string | null>(null);
+  const [currentTag, setCurrentTag] = useState("none");
 
   useEffect(() => {
     setAlbums(() =>
@@ -29,7 +29,7 @@ const TopSection = (): JSX.Element => {
             (searchByTitle && a.title.includes(query)) ||
             (searchByYear && a.year.toString().includes(query))
         )
-        .filter((a: Album) => (currentTag == null ? a : a.tags?.includes(currentTag)))
+        .filter((a: Album) => (currentTag === "none" ? a : a.tags?.includes(currentTag)))
         .sort((a: Album, b: Album): number => {
           switch (sortingOption) {
             case SORTING_OPTIONS.ARTIST_ASCENDING:
@@ -76,7 +76,7 @@ const TopSection = (): JSX.Element => {
           <ul className="dropdown-menu dropdown-menu-start">
             {Object.entries(TAGS).map(([key, value]) => (
               <li key={key}>
-                <a className={sortingOption === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
+                <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
                   {value}
                 </a>
               </li>

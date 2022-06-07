@@ -49,3 +49,7 @@ li {
   top: 8px;
   right: 100px;
 }
+
+.pointer {
+  cursor: pointer;
+}

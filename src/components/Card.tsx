@@ -13,9 +13,13 @@ const Card = (album: Album): JSX.Element => {
     <div className="card">
       <div className="d-flex flex-row">
         <div>
-          <a href={spotifyLink} target="_blank" rel="noreferrer">
-            <img src={coverUrl != null ? imgSource : "cover.png"} width={120} alt={imgAlt} />
-          </a>
+          {spotifyUrl ? (
+            <a href={spotifyLink} className="pointer" target="_blank" rel="noreferrer">
+              <img src={coverUrl ? imgSource : "covers/cover.png"} width={120} alt={imgAlt} />
+            </a>
+          ) : (
+            <img src={coverUrl ? imgSource : "covers/cover.png"} width={120} alt={imgAlt} />
+          )}
         </div>
         <div className="album-data">
           <div>
