@@ -5,7 +5,7 @@ interface SingleTag {
 }
 
 const Tag: FC<SingleTag> = ({ tag }): JSX.Element => {
-  return <span className="pill">{tag}</span>;
+  return <span className="pill me-2">{tag}</span>;
 };
 
 export default Tag;

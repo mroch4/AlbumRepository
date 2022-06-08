@@ -10,7 +10,7 @@ const Card = (album: Album): JSX.Element => {
   const imgAlt = `Cover of ${title} by ${artist}`;
 
   return (
-    <div className="card">
+    <div className="card mt-3 p-2">
       <div className="d-flex flex-row">
         <div>
           {spotifyUrl ? (
@@ -21,10 +21,10 @@ const Card = (album: Album): JSX.Element => {
             <img src={coverUrl ? imgSource : "covers/cover.png"} width={120} alt={imgAlt} />
           )}
         </div>
-        <div className="album-data">
+        <div className="album-data ms-2">
           <div>
-            <div className="text-capitalize">{artist}</div>
-            <div className="text-capitalize">{title}</div>
+            <div>{artist}</div>
+            <div>{title}</div>
             <div>{year}</div>
           </div>
           {tags ? <TagList tags={tags} /> : null}

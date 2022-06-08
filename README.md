@@ -1,15 +1,16 @@
-# Getting Started with Create React App
+## Album Repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React App to manage and organize the collection of my favorite CDs.
 
-## Available Scripts
+# Page URL:
 
-In the project directory, you can run:
+https://mroch4.github.io/AlbumRepository/
 
-### `npm start`
+# TODOs:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Utilize useContext hook
+Add language switch
+Album data onclick set query
+Add placeholder loading
+Firebase connection
+Apply CRUD

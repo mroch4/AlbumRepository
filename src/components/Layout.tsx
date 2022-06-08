@@ -16,7 +16,7 @@ const TopSection = (): JSX.Element => {
   const [searchByArtist, setSearchByArtist] = useState(SETTINGS.SEARCHBYARTIST_ONLOAD);
   const [searchByTitle, setSearchByTitle] = useState(SETTINGS.SEARCHBYTITLE_ONLOAD);
   const [searchByYear, setSearchByYear] = useState(SETTINGS.SEARCHBYYEAR_ONLOAD);
-  const [sortingOption, setSortingOption] = useState(SORTING_OPTIONS.YEAR_DESCENDING);
+  const [sortingOption, setSortingOption] = useState(SORTING_OPTIONS.ARTIST_ASCENDING);
   const [currentPage, setCurrentPage] = useState(0);
   const [currentTag, setCurrentTag] = useState("none");
 
@@ -25,8 +25,8 @@ const TopSection = (): JSX.Element => {
       albumsDatabase
         .filter(
           (a: Album) =>
-            (searchByArtist && a.artist.includes(query)) ||
-            (searchByTitle && a.title.includes(query)) ||
+            (searchByArtist && a.artist.toLowerCase().includes(query.toLowerCase())) ||
+            (searchByTitle && a.title.toLowerCase().includes(query.toLowerCase())) ||
             (searchByYear && a.year.toString().includes(query))
         )
         .filter((a: Album) => (currentTag === "none" ? a : a.tags?.includes(currentTag)))
@@ -60,49 +60,43 @@ const TopSection = (): JSX.Element => {
     setCurrentPage(0);
   }, [query, searchByArtist, searchByTitle, searchByYear, sortingOption, currentTag]);
 
-  const buttonClasses = "btn btn-secondary dropdown-toggle dropdown-toggle-split";
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const view = new Pagination(albums);
   const totalPages = view.getTotalPages();
 
   return (
     <>
-      <div className="sticky-top">
-        <div className="input-group">
-          {/* TAG DROPDOWN */}
-          <span className="btn btn-secondary">{LABELS.TAGS}</span>
-          <button type="button" className={buttonClasses} data-bs-toggle="dropdown" aria-expanded="false">
-            <span className="visually-hidden">Toggle Dropdown</span>
-          </button>
-          <ul className="dropdown-menu dropdown-menu-start">
-            {Object.entries(TAGS).map(([key, value]) => (
-              <li key={key}>
-                <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
-                  {value}
-                </a>
-              </li>
-            ))}
-          </ul>
-          {/* INPUT AREA */}
-          <input type="text" className="form-control" value={query} onChange={(e) => setQuery(e.target.value)} />
-          {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={() => setQuery("")}></button> : null}
-          {/* SORTING DROPDOWN */}
-          <span className="btn btn-secondary">{LABELS.SORTING}</span>
-          <button type="button" className={buttonClasses} data-bs-toggle="dropdown" aria-expanded="false">
-            <span className="visually-hidden">Toggle Dropdown</span>
-          </button>
-          <ul className="dropdown-menu dropdown-menu-end">
-            {Object.entries(SORTING_OPTIONS).map(([key, value]) => (
-              <li key={key}>
-                <a className={sortingOption === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setSortingOption(value)}>
-                  {value}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="input-group">
+        {/* INPUT AREA */}
+        <input type="text" className="form-control" value={query} onChange={(e) => setQuery(e.target.value)} />
+        {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={() => setQuery("")}></button> : null}
+        {/* TAG DROPDOWN */}
+        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {LABELS.TAGS}&nbsp;
+        </button>
+        <ul className="dropdown-menu dropdown-menu-end">
+          {Object.entries(TAGS).map(([key, value]) => (
+            <li key={key}>
+              <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
+                {value.toUpperCase()}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
+      {/* SORTING SELECT */}
+      <select className="form-select mt-2" onChange={(e) => setSortingOption(e.target.value)}>
+        {Object.entries(SORTING_OPTIONS).map(([key, value]) => (
+          <option key={key} value={value}>
+            {value}
+          </option>
+        ))}
+      </select>
       {/* CHECKBOX AREA */}
-      <div className="my-3">
+      <div className="my-2">
         <div className="form-check">
           <label className="form-check-label">
             <input className="form-check-input" type="checkbox" checked={searchByArtist} onChange={() => setSearchByArtist(!searchByArtist)} />
@@ -135,7 +129,9 @@ const TopSection = (): JSX.Element => {
           currentPage={currentPage}
           totalPages={totalPages}
         ></Navigation>
-      ) : null}
+      ) : (
+        <div className="spacer"></div>
+      )}
     </>
   );
 };

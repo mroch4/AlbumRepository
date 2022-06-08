@@ -8,7 +8,7 @@ interface Pagination {
 }
 
 const Navigation: FC<Pagination> = ({ nextPageHandler, previuosPageHandler, currentPage, totalPages }): JSX.Element => (
-  <div className="pagination">
+  <div className="pagination my-4">
     <button className="btn btn-secondary" onClick={previuosPageHandler} disabled={currentPage === 0 ? true : false}>
       {"<"}
     </button>
