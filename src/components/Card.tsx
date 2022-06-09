@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { Album } from "../common/Album";
 import TagList from "./TagList";
 
-const Card = (album: Album): JSX.Element => {
+const Card: FC<Album> = (album): JSX.Element => {
   const { artist, title, year, tags, coverUrl, spotifyUrl } = album;
 
   const spotifyLink = `https://open.spotify.com/album/${spotifyUrl}`;
@@ -21,7 +21,7 @@ const Card = (album: Album): JSX.Element => {
             <img src={coverUrl ? imgSource : "covers/cover.png"} width={120} alt={imgAlt} />
           )}
         </div>
-        <div className="album-data ms-2">
+        <div className="d-flex flex-column justify-content-between ms-2">
           <div>
             <div>{artist}</div>
             <div>{title}</div>

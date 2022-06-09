@@ -2,10 +2,6 @@ body {
   background-color: #fafafa;
 }
 
-li {
-  cursor: pointer;
-}
-
 .form-control {
   position: relative;
 }
@@ -31,22 +27,10 @@ li {
   cursor: pointer;
 }
 
-.album-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .pill {
   padding: 0.1rem 0.25rem;
   border-radius: 0.15rem;
   background-color: gainsboro;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .spacer{

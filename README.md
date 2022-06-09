@@ -1,16 +1,14 @@
-## Album Repository
+# Album Repository
 
-A simple React App to manage and organize the collection of my favorite CDs.
+Typescript based React App to manage and organize collection of my favorite music albums.
+Addtionally, a project to learn complex searching, sorting and ordering of datasets.
 
-# Page URL:
+## TODOs:
+
+Apply useContext hook to set query on album data onclick and global language switch\
+Add Firebase as database to store the albums data\
+Add placeholder while loading data from database\
+
+## Page URL:
 
 https://mroch4.github.io/AlbumRepository/
-
-# TODOs:
-
-Utilize useContext hook
-Add language switch
-Album data onclick set query
-Add placeholder loading
-Firebase connection
-Apply CRUD

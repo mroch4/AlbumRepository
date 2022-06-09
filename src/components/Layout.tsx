@@ -10,15 +10,15 @@ import CardList from "./CardList";
 import Counter from "./Counter";
 import Navigation from "./Navigation";
 
-const TopSection = (): JSX.Element => {
+const Layout = (): JSX.Element => {
   const [query, setQuery] = useState("");
   const [albums, setAlbums] = useState(albumsDatabase);
   const [searchByArtist, setSearchByArtist] = useState(SETTINGS.SEARCHBYARTIST_ONLOAD);
   const [searchByTitle, setSearchByTitle] = useState(SETTINGS.SEARCHBYTITLE_ONLOAD);
   const [searchByYear, setSearchByYear] = useState(SETTINGS.SEARCHBYYEAR_ONLOAD);
-  const [sortingOption, setSortingOption] = useState(SORTING_OPTIONS.ARTIST_ASCENDING);
+  const [sortingOption, setSortingOption] = useState(SORTING_OPTIONS.YEAR_ASCENDING);
   const [currentPage, setCurrentPage] = useState(0);
-  const [currentTag, setCurrentTag] = useState("none");
+  const [currentTag, setCurrentTag] = useState("all");
 
   useEffect(() => {
     setAlbums(() =>
@@ -29,17 +29,17 @@ const TopSection = (): JSX.Element => {
             (searchByTitle && a.title.toLowerCase().includes(query.toLowerCase())) ||
             (searchByYear && a.year.toString().includes(query))
         )
-        .filter((a: Album) => (currentTag === "none" ? a : a.tags?.includes(currentTag)))
+        .filter((a: Album) => (currentTag === "all" ? a : a.tags?.includes(currentTag)))
         .sort((a: Album, b: Album): number => {
           switch (sortingOption) {
             case SORTING_OPTIONS.ARTIST_ASCENDING:
               if (a.artist < b.artist) return -1;
               if (a.artist > b.artist) return 1;
-              return 0;
+              return a.year - b.year;
             case SORTING_OPTIONS.ARTIST_DESCENDING:
               if (a.artist > b.artist) return -1;
               if (a.artist < b.artist) return 1;
-              return 0;
+              return b.year - a.year;
             case SORTING_OPTIONS.TITLE_ASCENDING:
               if (a.title < b.title) return -1;
               if (a.title > b.title) return 1;
@@ -75,11 +75,11 @@ const TopSection = (): JSX.Element => {
         {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={() => setQuery("")}></button> : null}
         {/* TAG DROPDOWN */}
         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {LABELS.TAGS}&nbsp;
+          {currentTag.toUpperCase()}&nbsp;
         </button>
         <ul className="dropdown-menu dropdown-menu-end">
           {Object.entries(TAGS).map(([key, value]) => (
-            <li key={key}>
+            <li key={key} className="pointer">
               <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
                 {value.toUpperCase()}
               </a>
@@ -88,7 +88,7 @@ const TopSection = (): JSX.Element => {
         </ul>
       </div>
       {/* SORTING SELECT */}
-      <select className="form-select mt-2" onChange={(e) => setSortingOption(e.target.value)}>
+      <select className="form-select mt-2" value={sortingOption} onChange={(e) => setSortingOption(e.target.value)}>
         {Object.entries(SORTING_OPTIONS).map(([key, value]) => (
           <option key={key} value={value}>
             {value}
@@ -136,4 +136,4 @@ const TopSection = (): JSX.Element => {
   );
 };
 
-export default TopSection;
+export default Layout;
