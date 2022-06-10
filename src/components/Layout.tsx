@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
+import { Album } from "../common/Album";
 import { albumsDatabase } from "../common/Database";
 import LABELS from "../common/Labels";
-import { SETTINGS } from "../common/Settings";
-import { TAGS } from "../common/Tags";
-import { SORTING_OPTIONS } from "../common/SortingOptions";
-import { Album } from "../common/Album";
 import { Pagination } from "../common/Pagination";
-import CardList from "./CardList";
+import { SETTINGS } from "../common/Settings";
+import { SORTING_OPTIONS } from "../common/SortingOptions";
+import { TAGS } from "../common/Tags";
+import Checkbox from "./Checkbox";
 import Counter from "./Counter";
+import Dropdown from "./Dropdown";
+import Input from "./Input";
+import List from "./List";
 import Navigation from "./Navigation";
+import Select from "./Select";
+import Spacer from "./Spacer";
 
 const Layout = (): JSX.Element => {
   const [query, setQuery] = useState("");
@@ -27,7 +32,7 @@ const Layout = (): JSX.Element => {
           (a: Album) =>
             (searchByArtist && a.artist.toLowerCase().includes(query.toLowerCase())) ||
             (searchByTitle && a.title.toLowerCase().includes(query.toLowerCase())) ||
-            (searchByYear && a.year.toString().includes(query))
+            (searchByYear && a.year.toString().endsWith(query))
         )
         .filter((a: Album) => (currentTag === "all" ? a : a.tags?.includes(currentTag)))
         .sort((a: Album, b: Album): number => {
@@ -69,15 +74,13 @@ const Layout = (): JSX.Element => {
 
   return (
     <>
+      {/* INPUT */}
       <div className="input-group">
-        {/* INPUT AREA */}
-        <input type="text" className="form-control" value={query} onChange={(e) => setQuery(e.target.value)} />
-        {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={() => setQuery("")}></button> : null}
-        {/* TAG DROPDOWN */}
+        {/* <Dropdown currentTag={currentTag} onClickEvent={(e: MouseEventHandler<HTMLAnchorElement>) => setCurrentTag(e)} /> */}
         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {currentTag.toUpperCase()}&nbsp;
         </button>
-        <ul className="dropdown-menu dropdown-menu-end">
+        <ul className="dropdown-menu dropdown-menu-start">
           {Object.entries(TAGS).map(([key, value]) => (
             <li key={key} className="pointer">
               <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
@@ -86,42 +89,30 @@ const Layout = (): JSX.Element => {
             </li>
           ))}
         </ul>
+        <Input
+          query={query}
+          onChangeEvent={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.currentTarget.value)}
+          onClickEvent={() => setQuery("")}
+        />
       </div>
-      {/* SORTING SELECT */}
-      <select className="form-select mt-2" value={sortingOption} onChange={(e) => setSortingOption(e.target.value)}>
-        {Object.entries(SORTING_OPTIONS).map(([key, value]) => (
-          <option key={key} value={value}>
-            {value}
-          </option>
-        ))}
-      </select>
-      {/* CHECKBOX AREA */}
+
+      {/* SORTING */}
+      <Select value={sortingOption} onChangeEvent={(e: ChangeEvent<HTMLSelectElement>) => setSortingOption(e.currentTarget.value)} />
+
+      {/* CHECKBOXES */}
       <div className="my-2">
-        <div className="form-check">
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" checked={searchByArtist} onChange={() => setSearchByArtist(!searchByArtist)} />
-            {LABELS.SEARCHBYARTIST}
-          </label>
-        </div>
-        <div className="form-check">
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" checked={searchByTitle} onChange={() => setSearchByTitle(!searchByTitle)} />
-            {LABELS.SEARCHBYTITLE}
-          </label>
-        </div>
-        <div className="form-check">
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" checked={searchByYear} onChange={() => setSearchByYear(!searchByYear)} />
-            {LABELS.SEARCHBYYEAR}
-          </label>
-        </div>
+        <Checkbox checked={searchByArtist} onChangeEvent={() => setSearchByArtist(!searchByArtist)} label={LABELS.SEARCHBYARTIST} />
+        <Checkbox checked={searchByTitle} onChangeEvent={() => setSearchByTitle(!searchByTitle)} label={LABELS.SEARCHBYTITLE} />
+        <Checkbox checked={searchByYear} onChangeEvent={() => setSearchByYear(!searchByYear)} label={LABELS.SEARCHBYYEAR} />
       </div>
 
-      {/* VIEW AREA */}
+      {/* COUNTER */}
       <Counter count={albums.length} />
-      <CardList albums={view.getPage(currentPage)} />
 
-      {/* PAGINATION AREA */}
+      {/* VIEW */}
+      <List albums={view.getPage(currentPage)} />
+
+      {/* NAVIGATION */}
       {totalPages > 1 ? (
         <Navigation
           nextPageHandler={() => setCurrentPage(currentPage + 1)}
@@ -130,7 +121,7 @@ const Layout = (): JSX.Element => {
           totalPages={totalPages}
         ></Navigation>
       ) : (
-        <div className="spacer"></div>
+        <Spacer />
       )}
     </>
   );

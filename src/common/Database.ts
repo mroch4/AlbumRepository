@@ -50,7 +50,7 @@ export const albumsDatabase: Album[] = [
   {
     id: 6,
     artist: "Nightwish",
-    title: "Highest Hopes: The Best of Nightwish",
+    title: "Highest Hopes",
     year: 2005,
     tags: [TAGS[3], TAGS[6]],
     coverUrl: "lvj4vn",
@@ -278,7 +278,7 @@ export const albumsDatabase: Album[] = [
     title: "The Dark Side of the Moon",
     year: 1973,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "rnzgzc",
     spotifyUrl: "4LH4d3cOWNNsVw41Gqt2kv",
   },
   {
@@ -287,7 +287,7 @@ export const albumsDatabase: Album[] = [
     title: "Animals",
     year: 1975,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "di4g4k",
     spotifyUrl: "21jUB9RqplD6OqtsTjKBnO",
   },
   {
@@ -296,7 +296,7 @@ export const albumsDatabase: Album[] = [
     title: "Wish You Were Here",
     year: 1977,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "oy21a8",
     spotifyUrl: "6uvBKDGlJAYLH5Vy6RQVsc",
   },
   {
@@ -305,7 +305,7 @@ export const albumsDatabase: Album[] = [
     title: "The Wall",
     year: 1979,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "u9no20",
     spotifyUrl: "6WaIQHxEHtZL0RZ62AuY0g",
   },
   {
@@ -314,7 +314,7 @@ export const albumsDatabase: Album[] = [
     title: "Lower Than Atlantis",
     year: 2014,
     tags: [TAGS[9]],
-    coverUrl: null,
+    coverUrl: "sghr0a",
     spotifyUrl: "6uf4FBKy6xgAW4f1GmQ04A",
   },
   {
@@ -323,7 +323,7 @@ export const albumsDatabase: Album[] = [
     title: "Safe in Sound",
     year: 2017,
     tags: [TAGS[9]],
-    coverUrl: null,
+    coverUrl: "zhf30k",
     spotifyUrl: "2QEGCBGVqN0WvX2wHeuwMP",
   },
   {
@@ -341,7 +341,7 @@ export const albumsDatabase: Album[] = [
     title: "Porter Band '99",
     year: 1999,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "pxmivg",
     spotifyUrl: null,
   },
   {
@@ -350,7 +350,7 @@ export const albumsDatabase: Album[] = [
     title: "Electric",
     year: 2000,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "umdf0u",
     spotifyUrl: null,
   },
   {
@@ -359,7 +359,7 @@ export const albumsDatabase: Album[] = [
     title: "Psychodelikatesy",
     year: 2007,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "zwdc23",
     spotifyUrl: null,
   },
   {
@@ -368,7 +368,7 @@ export const albumsDatabase: Album[] = [
     title: "Mother's Milk",
     year: 1989,
     tags: [TAGS[6], TAGS[7]],
-    coverUrl: null,
+    coverUrl: "apxgcj",
     spotifyUrl: "27WeSriNUz7qD50tdoZClP",
   },
   {
@@ -377,7 +377,7 @@ export const albumsDatabase: Album[] = [
     title: "Louder than Love",
     year: 1989,
     tags: [TAGS[6], TAGS[7]],
-    coverUrl: null,
+    coverUrl: "q04iwv",
     spotifyUrl: "4Q1HXCFg84PfQRZlPCA4SH",
   },
   {
@@ -386,7 +386,7 @@ export const albumsDatabase: Album[] = [
     title: "Rage Against The Machine",
     year: 1992,
     tags: [TAGS[3], TAGS[6], TAGS[7]],
-    coverUrl: null,
+    coverUrl: "eax9gl",
     spotifyUrl: "4LaRYkT4oy47wEuQgkLBul",
   },
   {
@@ -395,7 +395,7 @@ export const albumsDatabase: Album[] = [
     title: "Renegades",
     year: 2000,
     tags: [TAGS[3], TAGS[4]],
-    coverUrl: null,
+    coverUrl: "yogokl",
     spotifyUrl: "6iVOwFVjFRoQPgj8GUwSsi",
   },
   {
@@ -404,7 +404,7 @@ export const albumsDatabase: Album[] = [
     title: "The Battle of Los Angeles",
     year: 1999,
     tags: [TAGS[3], TAGS[4]],
-    coverUrl: null,
+    coverUrl: "etryh3",
     spotifyUrl: "2eia0myWFgoHuttJytCxgX",
   },
   {
@@ -413,7 +413,7 @@ export const albumsDatabase: Album[] = [
     title: "3, 2, 1...!",
     year: 2011,
     tags: [TAGS[9]],
-    coverUrl: null,
+    coverUrl: "vo9sld",
     spotifyUrl: "0ieZV5SxZ0HA1UoNWVyVq7",
   },
   {
@@ -422,7 +422,7 @@ export const albumsDatabase: Album[] = [
     title: "The Horryfying Truth",
     year: 2011,
     tags: [TAGS[9]],
-    coverUrl: null,
+    coverUrl: "ndhcv7",
     spotifyUrl: "5cF5m1f2MPh099b7kh6mqh",
   },
   {
@@ -431,7 +431,7 @@ export const albumsDatabase: Album[] = [
     title: "Life in Captivity",
     year: 2018,
     tags: [TAGS[9]],
-    coverUrl: null,
+    coverUrl: "ey3ujl",
     spotifyUrl: "3CHKkXkiVHGzTVvOyX4aU2",
   },
   {
@@ -440,7 +440,7 @@ export const albumsDatabase: Album[] = [
     title: "Mutter",
     year: 2001,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "qwocjo",
     spotifyUrl: "7ikuEzL6xeAgu6yT6YVLy7",
   },
   {
@@ -449,7 +449,7 @@ export const albumsDatabase: Album[] = [
     title: "Reise, Reise",
     year: 2004,
     tags: [TAGS[1]],
-    coverUrl: null,
+    coverUrl: "5nt7ac",
     spotifyUrl: "09qHS2BgOLqi3SMkbauxdJ",
   },
   {
@@ -458,7 +458,7 @@ export const albumsDatabase: Album[] = [
     title: "Once",
     year: 2004,
     tags: [TAGS[2]],
-    coverUrl: null,
+    coverUrl: "xzjfyy",
     spotifyUrl: "0aDCpYtFdQ0S8C3oAtOonk",
   },
   {
@@ -467,7 +467,7 @@ export const albumsDatabase: Album[] = [
     title: "Century Child",
     year: 2002,
     tags: [TAGS[2]],
-    coverUrl: null,
+    coverUrl: "hb6tx4",
     spotifyUrl: "4FFDudC4xBVF6MYJUynRsN",
   },
   {
@@ -476,7 +476,7 @@ export const albumsDatabase: Album[] = [
     title: "Hipertrofia",
     year: 2011,
     tags: [TAGS[2]],
-    coverUrl: null,
+    coverUrl: "mlu0q8",
     spotifyUrl: "2XbZLK8epe8hNnh8fo1ArW",
   },
   {
@@ -485,7 +485,7 @@ export const albumsDatabase: Album[] = [
     title: "Prawda",
     year: 2010,
     tags: [TAGS[5]],
-    coverUrl: null,
+    coverUrl: "dbjvsc",
     spotifyUrl: "1IvD11R4ZGTm4rSveWc2Xg",
   },
 ];

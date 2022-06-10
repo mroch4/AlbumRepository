@@ -9,7 +9,7 @@ body {
 .btn-close {
   position: absolute;
   top: 8px;
-  right: 80px;
+  right: 8px;
 }
 
 .dropdown-item.active {
@@ -33,6 +33,6 @@ body {
   background-color: gainsboro;
 }
 
-.spacer{
+.spacer {
   height: 86px;
 }
