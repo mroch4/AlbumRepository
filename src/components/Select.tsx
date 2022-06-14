@@ -7,10 +7,8 @@ interface Select {
 }
 
 const Select: FC<Select> = (props): JSX.Element => {
-  const { value, onChangeEvent } = props;
-
   return (
-    <select className="form-select mt-2" value={value} onChange={onChangeEvent}>
+    <select className="form-select mt-2" value={props.value} onChange={props.onChangeEvent}>
       {Object.entries(SORTING_OPTIONS).map(([key, value]) => (
         <option key={key} value={value}>
           {value}

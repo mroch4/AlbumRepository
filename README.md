@@ -5,9 +5,9 @@ Addtionally, a project to learn complex searching, sorting and ordering of datas
 
 ## TODOs:
 
-Apply useContext hook to set query on album data onclick and global language switch\
-Add Firebase as database to store the albums data\
-Add placeholder while loading data from database\
+Get HTMLAnchorElement and HTMLDivElement innerText (TS MouseEventHandler typing issue) to set the query onClick\
+Add global language switch\
+Add Firebase as database to store the albums data
 
 ## Page URL:
 

@@ -1,4 +1,5 @@
 interface Settings {
+  LOADING_TIMEOUT: number;
   SEARCHBYARTIST_ONLOAD: boolean;
   SEARCHBYTITLE_ONLOAD: boolean;
   SEARCHBYYEAR_ONLOAD: boolean;
@@ -6,6 +7,7 @@ interface Settings {
 }
 
 export const SETTINGS: Settings = {
+  LOADING_TIMEOUT: 2000,
   SEARCHBYARTIST_ONLOAD: true,
   SEARCHBYTITLE_ONLOAD: true,
   SEARCHBYYEAR_ONLOAD: true,

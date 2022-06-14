@@ -7,17 +7,15 @@ interface TagDropdown {
 }
 
 const Dropdown: FC<TagDropdown> = (props): JSX.Element => {
-  const { currentTag, onClickEvent } = props;
-
   return (
     <>
       <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {currentTag.toUpperCase()}&nbsp;
+        {props.currentTag.toUpperCase()}&nbsp;
       </button>
       <ul className="dropdown-menu dropdown-menu-end">
         {Object.entries(TAGS).map(([key, value]) => (
           <li key={key} className="pointer">
-            <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={onClickEvent}>
+            <a className={props.currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={props.onClickEvent}>
               {value.toUpperCase()}
             </a>
           </li>

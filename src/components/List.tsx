@@ -6,10 +6,10 @@ interface Albums {
   albums: Album[];
 }
 
-const List: FC<Albums> = ({ albums }): JSX.Element => {
+const List: FC<Albums> = (props): JSX.Element => {
   return (
     <>
-      {albums.map((album: Album) => (
+      {props.albums.map((album: Album) => (
         <Card key={album.id} {...album} />
       ))}
     </>

@@ -7,13 +7,11 @@ interface Checkbox {
 }
 
 const Checkbox: FC<Checkbox> = (props): JSX.Element => {
-  const { checked, onChangeEvent, label } = props;
-
   return (
     <div className="form-check">
       <label className="form-check-label">
-        <input className="form-check-input" type="checkbox" checked={checked} onChange={onChangeEvent} />
-        {label}
+        <input className="form-check-input" type="checkbox" checked={props.checked} onChange={props.onChangeEvent} />
+        {props.label}
       </label>
     </div>
   );
