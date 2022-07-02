@@ -1,0 +1,86 @@
+body {
+  height: 100vh;
+}
+
+div[data-theme="light"] {
+  background-color: #fafafa;
+}
+
+div[data-theme="light"] .card {
+  background-color: white;
+}
+
+div[data-theme="light"] .card .pill {
+  background-color: gainsboro;
+}
+
+div[data-theme="dark"] {
+  background-color: #090909;
+  color: #efefef;
+}
+
+div[data-theme="dark"] .card {
+  background-color: #313131;
+}
+
+div[data-theme="dark"] .card .pill {
+  background-color: #090909;
+}
+
+.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.dropdown-item.active {
+  background-color: #5c636a;
+}
+
+.info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.card .cover {
+  width: 120px;
+  height: 120px;
+}
+
+.card .cover .disabled {
+  -webkit-filter: opacity(0.25);
+          filter: opacity(0.25);
+  pointer-events: none;
+  cursor: default;
+}
+
+.card .pill {
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.15rem;
+}
+
+.spacer {
+  height: 86px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,24 +1,27 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Album } from "../common/Album";
-import { albumsDatabase } from "../common/Database";
 import LABELS from "../common/Labels";
-import { Pagination } from "../common/Pagination";
+import Pagination from "../services/Pagination";
 import { SETTINGS } from "../common/Settings";
 import { SORTING_OPTIONS } from "../common/SortingOptions";
 import { TAGS } from "../common/Tags";
 import Checkbox from "./Checkbox";
 import Counter from "./Counter";
 import Desc from "./Desc";
+import Dropdown from "./Dropdown";
 import Input from "./Input";
 import List from "./List";
 import Loader from "./Loader";
 import Navigation from "./Navigation";
 import Select from "./Select";
 import Spacer from "./Spacer";
+import { AppContext, AppContextType } from "../services/Context";
 
 const Layout = (): JSX.Element => {
+  const { albumsDatabase } = React.useContext(AppContext) as AppContextType;
+  const [queriedData, setQueriedData] = useState(albumsDatabase);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [albums, setAlbums] = useState(albumsDatabase);
+
   const [query, setQuery] = useState("");
   const [currentTag, setCurrentTag] = useState("all");
   const [searchByArtist, setSearchByArtist] = useState(SETTINGS.SEARCHBYARTIST_ONLOAD);
@@ -35,7 +38,7 @@ const Layout = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    setAlbums(() =>
+    setQueriedData(() =>
       albumsDatabase
         .filter(
           (a: Album) =>
@@ -76,7 +79,7 @@ const Layout = (): JSX.Element => {
     setCurrentPage(0);
   }, [query, searchByArtist, searchByTitle, searchByYear, sortingOption, currentTag]);
 
-  const view = new Pagination(albums);
+  const view = new Pagination(queriedData);
   const totalPages = view.getTotalPages();
 
   useEffect(() => {
@@ -84,8 +87,9 @@ const Layout = (): JSX.Element => {
   }, [currentPage]);
 
   return (
-    <div className="container mt-3">
+    <div className="container mt-2">
       <div className="input-group">
+        {/* <Dropdown currentTag={currentTag} onClickEvent={(e) => setCurrentTag(e.target.value)} /> */}
         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {currentTag.toUpperCase()}&nbsp;
         </button>
@@ -113,7 +117,7 @@ const Layout = (): JSX.Element => {
 
       {dataLoaded ? (
         <>
-          <Counter count={albums.length} />
+          <Counter count={queriedData.length} />
           <Desc tag={currentTag} />
           <List albums={view.getPage(currentPage)} />
           {totalPages > 1 ? (

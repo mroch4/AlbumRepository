@@ -1,0 +1,88 @@
+//DARK THEME
+$darkBackground: #090909;
+$darkCard: #313131;
+$darkFont: #efefef;
+
+//LIGHT THEME
+$lightBackground: #fafafa;
+$lightCard: white;
+
+body {
+  height: 100vh;
+}
+
+div[data-theme="light"] {
+  background-color: $lightBackground;
+
+  .card {
+    background-color: $lightCard;
+
+    .pill {
+      background-color: gainsboro;
+    }
+  }
+}
+
+div[data-theme="dark"] {
+  background-color: $darkBackground;
+  color: $darkFont;
+
+  .card {
+    background-color: $darkCard;
+
+    .pill {
+      background-color: $darkBackground;
+    }
+  }
+}
+
+.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.dropdown-item.active {
+  background-color: #5c636a;
+}
+
+//GENERIC
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card {
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+
+  .cover {
+    width: 120px;
+    height: 120px;
+
+    & .disabled {
+      filter: opacity(0.25);
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .pill {
+    padding: 0.1rem 0.25rem;
+    border-radius: 0.15rem;
+  }
+}
+
+.spacer {
+  height: 86px;
+}
+
+//COMMON
+.pointer {
+  cursor: pointer;
+}

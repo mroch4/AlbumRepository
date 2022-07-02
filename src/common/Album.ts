@@ -6,4 +6,5 @@ export interface Album {
   tags: string[] | null;
   coverUrl: string | null;
   spotifyUrl: string | null;
+  clicked: number;
 }

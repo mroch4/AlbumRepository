@@ -1,7 +1,7 @@
-import { SETTINGS } from "./Settings";
-import { Album } from "./Album";
+import { SETTINGS } from "../common/Settings";
+import { Album } from "../common/Album";
 
-export class Pagination {
+class Pagination {
   data: Album[];
 
   constructor(data: Album[]) {
@@ -17,3 +17,5 @@ export class Pagination {
     return Math.ceil(this.data.length / SETTINGS.PAGINATION_PAGESIZE);
   }
 }
+
+export default Pagination;

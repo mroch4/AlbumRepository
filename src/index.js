@@ -4,7 +4,9 @@ import App from './App';
 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css';
+
+import './styles/styles.css';
+import './styles/loader.css';
 
 ReactDOM.render(
   <React.StrictMode>

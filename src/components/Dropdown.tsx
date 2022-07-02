@@ -7,6 +7,16 @@ interface TagDropdown {
 }
 
 const Dropdown: FC<TagDropdown> = (props): JSX.Element => {
+  // const handleOnClick = (e: MouseEvent<HTMLAnchorElement>) => {
+  //   e.preventDefault();
+  //   props.onClickEvent(e.currentTarget.value);
+  // };
+
+  //TODO - pass a anchor element innerHTML value to set currentTag
+  const handleOnClick = () => {
+    console.log("tag");
+  };
+
   return (
     <>
       <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,7 +25,7 @@ const Dropdown: FC<TagDropdown> = (props): JSX.Element => {
       <ul className="dropdown-menu dropdown-menu-end">
         {Object.entries(TAGS).map(([key, value]) => (
           <li key={key} className="pointer">
-            <a className={props.currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={props.onClickEvent}>
+            <a className={props.currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={handleOnClick}>
               {value.toUpperCase()}
             </a>
           </li>
