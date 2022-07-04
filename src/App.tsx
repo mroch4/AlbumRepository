@@ -1,14 +1,14 @@
 import React from "react";
 import ContextProvider from "./services/Context";
 import Layout from "./components/Layout";
-import ThemeToggler from "./components/ThemeToggler";
+import ContextToggler from "./components/ContextToggler";
 
 function App(): JSX.Element {
   return (
     <ContextProvider>
-      <ThemeToggler>
+      <ContextToggler>
         <Layout />
-      </ThemeToggler>
+      </ContextToggler>
     </ContextProvider>
   );
 }

@@ -1,5 +1,5 @@
-import { Album } from "./Album";
 import { TAGS } from "./Tags";
+import Album from "../interfaces/Album";
 
 export const ALBUMSDATABASE: Album[] = [
   {
@@ -257,7 +257,7 @@ export const ALBUMSDATABASE: Album[] = [
     artist: "Soundgarden",
     title: "Badmotorfinger",
     year: 1991,
-    tags: [TAGS[3], TAGS[6], TAGS[7]],
+    tags: [TAGS[3], TAGS[7]],
     coverUrl: "3f7n4w",
     spotifyUrl: "6AA5g730FNzwKI08H7rxBk",
     clicked: 0,
@@ -349,7 +349,7 @@ export const ALBUMSDATABASE: Album[] = [
     year: 2014,
     tags: [TAGS[9]],
     coverUrl: "sghr0a",
-    spotifyUrl: "6uf4FBKy6xgAW4f1GmQ04A",
+    spotifyUrl: "25xQevIYTCKcvsw9fyZoDb",
     clicked: 0,
   },
   {
@@ -407,7 +407,7 @@ export const ALBUMSDATABASE: Album[] = [
     artist: "Red Hot Chili Peppers",
     title: "Mother's Milk",
     year: 1989,
-    tags: [TAGS[6], TAGS[7]],
+    tags: [TAGS[7]],
     coverUrl: "apxgcj",
     spotifyUrl: "27WeSriNUz7qD50tdoZClP",
     clicked: 0,
@@ -417,7 +417,7 @@ export const ALBUMSDATABASE: Album[] = [
     artist: "Soundgarden",
     title: "Louder than Love",
     year: 1989,
-    tags: [TAGS[6], TAGS[7]],
+    tags: [TAGS[7]],
     coverUrl: "q04iwv",
     spotifyUrl: "4Q1HXCFg84PfQRZlPCA4SH",
     clicked: 0,
@@ -427,7 +427,7 @@ export const ALBUMSDATABASE: Album[] = [
     artist: "Rage Against The Machine",
     title: "Rage Against The Machine",
     year: 1992,
-    tags: [TAGS[3], TAGS[6], TAGS[7]],
+    tags: [TAGS[3], TAGS[7]],
     coverUrl: "eax9gl",
     spotifyUrl: "4LaRYkT4oy47wEuQgkLBul",
     clicked: 0,
@@ -1010,6 +1010,46 @@ export const ALBUMSDATABASE: Album[] = [
     tags: [TAGS[1]],
     coverUrl: "2sjemp",
     spotifyUrl: null,
+    clicked: 0,
+  },
+  {
+    id: 102,
+    artist: "Wardruna",
+    title: "Runaljod - gap var Ginnunga",
+    year: 2009,
+    tags: [TAGS[2]],
+    coverUrl: "b05toz",
+    spotifyUrl: "6aA7B8RGZOCmQDpKhWPJ3U",
+    clicked: 0,
+  },
+  {
+    id: 103,
+    artist: "Arctic Monkeys",
+    title: "AM",
+    year: 2013,
+    tags: [TAGS[9]],
+    coverUrl: "grtn1a",
+    spotifyUrl: "78bpIziExqiI9qztvNFlQu",
+    clicked: 0,
+  },
+  {
+    id: 104,
+    artist: "Audioslave",
+    title: "Covers & Rare",
+    year: 2006,
+    tags: [TAGS[2]],
+    coverUrl: "04oj3y",
+    spotifyUrl: "67sfyNkOtMZp01K22w03sl",
+    clicked: 0,
+  },
+  {
+    id: 105,
+    artist: "Iron Maiden",
+    title: "A Matter of Life and Death",
+    year: 2006,
+    tags: [TAGS[2]],
+    coverUrl: "cx8la6",
+    spotifyUrl: "5qLvOn0QzAWOqonBc05Ord",
     clicked: 0,
   },
 ];

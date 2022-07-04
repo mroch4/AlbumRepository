@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { Album } from "../common/Album";
+
 import Card from "./Card";
+import Album from "../interfaces/Album";
 
 interface Albums {
   albums: Album[];

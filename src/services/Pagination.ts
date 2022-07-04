@@ -1,5 +1,5 @@
 import { SETTINGS } from "../common/Settings";
-import { Album } from "../common/Album";
+import Album from "../interfaces/Album";
 
 class Pagination {
   data: Album[];

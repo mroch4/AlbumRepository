@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { Album } from "../common/Album";
+
 import TagList from "./TagList";
+import Album from "../interfaces/Album";
 
 const Card: FC<Album> = (props): JSX.Element => {
   const { artist, title, year, tags, coverUrl, spotifyUrl } = props;

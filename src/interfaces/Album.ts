@@ -1,4 +1,4 @@
-export interface Album {
+interface Album {
   id: number;
   artist: string;
   title: string;
@@ -8,3 +8,5 @@ export interface Album {
   spotifyUrl: string | null;
   clicked: number;
 }
+
+export default Album;

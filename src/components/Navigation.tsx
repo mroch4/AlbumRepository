@@ -1,5 +1,4 @@
 import React, { FC, MouseEventHandler } from "react";
-import LABELS from "../common/Labels";
 
 import { AppContext, AppContextType } from "../services/Context";
 
@@ -11,7 +10,7 @@ interface Pagination {
 }
 
 const Navigation: FC<Pagination> = (props): JSX.Element => {
-  const { lightTheme } = React.useContext(AppContext) as AppContextType;
+  const { lightTheme, labels } = React.useContext(AppContext) as AppContextType;
 
   const { nextPageHandler, previuosPageHandler, currentPage, totalPages } = props;
 
@@ -25,7 +24,7 @@ const Navigation: FC<Pagination> = (props): JSX.Element => {
         {"<"}
       </button>
       <span className="mx-3">
-        {LABELS.PAGE}&nbsp;{currentPage + 1}&nbsp;{LABELS.PAGE_SEPARATOR}&nbsp;{totalPages}
+        {labels.PAGE}&nbsp;{currentPage + 1}&nbsp;{labels.PAGE_SEPARATOR}&nbsp;{totalPages}
       </span>
       <button
         className={lightTheme ? "btn btn-secondary-outline" : "btn btn-dark"}

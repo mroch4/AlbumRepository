@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, MouseEventHandler } from "react";
+import React, { FC, ChangeEventHandler, MouseEventHandler } from "react";
 
 interface Input {
   query: string;

@@ -1,13 +1,7 @@
-interface Settings {
-  LIGHT_THEME: boolean;
-  LOADING_TIMEOUT: number;
-  SEARCHBYARTIST_ONLOAD: boolean;
-  SEARCHBYTITLE_ONLOAD: boolean;
-  SEARCHBYYEAR_ONLOAD: boolean;
-  PAGINATION_PAGESIZE: number;
-}
+import Settings from "../interfaces/Settings";
 
 export const SETTINGS: Settings = {
+  LANGUAGE: 1,
   LIGHT_THEME: false,
   LOADING_TIMEOUT: 1000,
   SEARCHBYARTIST_ONLOAD: true,

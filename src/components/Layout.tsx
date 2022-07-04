@@ -1,24 +1,23 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Album } from "../common/Album";
-import LABELS from "../common/Labels";
-import Pagination from "../services/Pagination";
-import { SETTINGS } from "../common/Settings";
-import { SORTING_OPTIONS } from "../common/SortingOptions";
-import { TAGS } from "../common/Tags";
+
 import Checkbox from "./Checkbox";
 import Counter from "./Counter";
 import Desc from "./Desc";
-import Dropdown from "./Dropdown";
 import Input from "./Input";
 import List from "./List";
 import Loader from "./Loader";
 import Navigation from "./Navigation";
 import Select from "./Select";
-import Spacer from "./Spacer";
+import { SETTINGS } from "../common/Settings";
+import { TAGS } from "../common/Tags";
+import Album from "../interfaces/Album";
+import Pagination from "../services/Pagination";
+
 import { AppContext, AppContextType } from "../services/Context";
+import Spacer from "./Spacer";
 
 const Layout = (): JSX.Element => {
-  const { albumsDatabase } = React.useContext(AppContext) as AppContextType;
+  const { albumsDatabase, labels } = React.useContext(AppContext) as AppContextType;
   const [queriedData, setQueriedData] = useState(albumsDatabase);
   const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -27,7 +26,7 @@ const Layout = (): JSX.Element => {
   const [searchByArtist, setSearchByArtist] = useState(SETTINGS.SEARCHBYARTIST_ONLOAD);
   const [searchByTitle, setSearchByTitle] = useState(SETTINGS.SEARCHBYTITLE_ONLOAD);
   const [searchByYear, setSearchByYear] = useState(SETTINGS.SEARCHBYYEAR_ONLOAD);
-  const [sortingOption, setSortingOption] = useState(SORTING_OPTIONS.RANDOM);
+  const [sortingOption, setSortingOption] = useState(labels.YEAR_DESCENDING);
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
@@ -49,27 +48,27 @@ const Layout = (): JSX.Element => {
         .filter((a: Album) => (currentTag === "all" ? a : a.tags?.includes(currentTag)))
         .sort((a: Album, b: Album): number => {
           switch (sortingOption) {
-            case SORTING_OPTIONS.ARTIST_ASCENDING:
+            case labels.ARTIST_ASCENDING:
               if (a.artist < b.artist) return -1;
               if (a.artist > b.artist) return 1;
               return a.year - b.year;
-            case SORTING_OPTIONS.ARTIST_DESCENDING:
+            case labels.ARTIST_DESCENDING:
               if (a.artist > b.artist) return -1;
               if (a.artist < b.artist) return 1;
               return b.year - a.year;
-            case SORTING_OPTIONS.TITLE_ASCENDING:
+            case labels.TITLE_ASCENDING:
               if (a.title < b.title) return -1;
               if (a.title > b.title) return 1;
               return 0;
-            case SORTING_OPTIONS.TITLE_DESCENDING:
+            case labels.TITLE_DESCENDING:
               if (a.title > b.title) return -1;
               if (a.title < b.title) return 1;
               return 0;
-            case SORTING_OPTIONS.YEAR_ASCENDING:
+            case labels.YEAR_ASCENDING:
               return a.year - b.year;
-            case SORTING_OPTIONS.YEAR_DESCENDING:
+            case labels.YEAR_DESCENDING:
               return b.year - a.year;
-            case SORTING_OPTIONS.RANDOM:
+            case labels.RANDOM:
               return Math.random() - 0.5;
             default:
               return 0;
@@ -110,9 +109,9 @@ const Layout = (): JSX.Element => {
       </div>
       <Select value={sortingOption} onChangeEvent={(e: ChangeEvent<HTMLSelectElement>) => setSortingOption(e.currentTarget.value)} />
       <div className="my-2">
-        <Checkbox checked={searchByArtist} onChangeEvent={() => setSearchByArtist(!searchByArtist)} label={LABELS.SEARCHBYARTIST} />
-        <Checkbox checked={searchByTitle} onChangeEvent={() => setSearchByTitle(!searchByTitle)} label={LABELS.SEARCHBYTITLE} />
-        <Checkbox checked={searchByYear} onChangeEvent={() => setSearchByYear(!searchByYear)} label={LABELS.SEARCHBYYEAR} />
+        <Checkbox checked={searchByArtist} onChangeEvent={() => setSearchByArtist(!searchByArtist)} label={labels.SEARCHBYARTIST} />
+        <Checkbox checked={searchByTitle} onChangeEvent={() => setSearchByTitle(!searchByTitle)} label={labels.SEARCHBYTITLE} />
+        <Checkbox checked={searchByYear} onChangeEvent={() => setSearchByYear(!searchByYear)} label={labels.SEARCHBYYEAR} />
       </div>
 
       {dataLoaded ? (

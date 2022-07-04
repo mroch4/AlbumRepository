@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC } from "react";
+import React, { FC, ChangeEventHandler } from "react";
 
 interface Checkbox {
   checked: boolean;
