@@ -10,6 +10,25 @@ body {
   background-color: var(--background-color);
 }
 
+.topnav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+
+.topnav .logo {
+  font-size: 2.25rem;
+  font-family: "Six Caps", sans-serif;
+  letter-spacing: 0.25rem;
+}
+
 .btn-close {
   position: absolute;
   top: 8px;

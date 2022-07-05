@@ -33,7 +33,8 @@ const ContextToggler: FC<ContextProps> = ({ children }) => {
 
   return (
     <div>
-      <div className="container d-flex justify-content-end pt-2">
+      <div className="container topnav">
+        <span className="logo">Albums Repository</span>
         <div className="form-check d-flex flex-column">
           <label className="form-check-label">
             <input className="form-check-input" type="checkbox" checked={isPL} onChange={handleLanguageChange} />
