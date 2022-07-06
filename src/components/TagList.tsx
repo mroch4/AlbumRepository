@@ -7,9 +7,11 @@ interface Tags {
 }
 
 const TagList: FC<Tags> = (props): JSX.Element => {
+  const { tags } = props;
+
   return (
     <div className="d-flex flex-row">
-      {props.tags?.map((tag) => (
+      {tags?.map((tag) => (
         <Tag key={tag} tag={tag} />
       ))}
     </div>

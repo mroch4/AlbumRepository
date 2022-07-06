@@ -1,13 +1,15 @@
 import React, { FC } from "react";
 
 import { TAGS } from "../common/Tags";
-import { AppContext, AppContextType } from "../services/Context";
+import { AppContextType } from "../interfaces/AppContext";
+import { AppContext } from "../services/Context";
 
 interface Tag {
   tag: string;
 }
 
 const Desc: FC<Tag> = (props): JSX.Element => {
+  const { tag } = props;
   const { labels } = React.useContext(AppContext) as AppContextType;
 
   const getDesc = (tag: string): string => {
@@ -37,7 +39,7 @@ const Desc: FC<Tag> = (props): JSX.Element => {
     }
   };
 
-  return <span className="fw-lighter fst-italic">{getDesc(props.tag)}</span>;
+  return <span className="fw-lighter fst-italic">{getDesc(tag)}</span>;
 };
 
 export default Desc;

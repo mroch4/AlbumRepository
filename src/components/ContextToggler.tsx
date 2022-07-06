@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 
 import LABELS from "../common/Labels";
-import { AppContext, AppContextType, ContextProps } from "../services/Context";
+import AppContextType from "../interfaces/AppContext";
+import { AppContext, ContextProps } from "../services/Context";
 
 const ContextToggler: FC<ContextProps> = ({ children }) => {
   const { lightTheme, changeTheme, countryCode, changeCountryCode, labels } = React.useContext(AppContext) as AppContextType;

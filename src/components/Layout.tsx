@@ -8,26 +8,26 @@ import List from "./List";
 import Loader from "./Loader";
 import Navigation from "./Navigation";
 import Select from "./Select";
+import Spacer from "./Spacer";
 import { SETTINGS } from "../common/Settings";
 import { TAGS } from "../common/Tags";
 import Album from "../interfaces/Album";
+import AppContextType from "../interfaces/AppContext";
+import { AppContext } from "../services/Context";
 import Pagination from "../services/Pagination";
-
-import { AppContext, AppContextType } from "../services/Context";
-import Spacer from "./Spacer";
 
 const Layout = (): JSX.Element => {
   const { albumsDatabase, labels } = React.useContext(AppContext) as AppContextType;
   const [queriedData, setQueriedData] = useState(albumsDatabase);
   const [dataLoaded, setDataLoaded] = useState(false);
 
-  const [query, setQuery] = useState("");
-  const [currentTag, setCurrentTag] = useState("all");
-  const [searchByArtist, setSearchByArtist] = useState(SETTINGS.SEARCHBYARTIST_ONLOAD);
-  const [searchByTitle, setSearchByTitle] = useState(SETTINGS.SEARCHBYTITLE_ONLOAD);
-  const [searchByYear, setSearchByYear] = useState(SETTINGS.SEARCHBYYEAR_ONLOAD);
-  const [sortingOption, setSortingOption] = useState(labels.YEAR_DESCENDING);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [query, setQuery] = useState<string>("");
+  const [currentTag, setCurrentTag] = useState<string>("all");
+  const [searchByArtist, setSearchByArtist] = useState<boolean>(SETTINGS.SEARCHBYARTIST_ONLOAD);
+  const [searchByTitle, setSearchByTitle] = useState<boolean>(SETTINGS.SEARCHBYTITLE_ONLOAD);
+  const [searchByYear, setSearchByYear] = useState<boolean>(SETTINGS.SEARCHBYYEAR_ONLOAD);
+  const [sortingOption, setSortingOption] = useState<string>(labels.YEAR_DESCENDING);
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {

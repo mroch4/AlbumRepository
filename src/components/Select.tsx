@@ -1,6 +1,7 @@
 import React, { FC, ChangeEventHandler } from "react";
 
-import { AppContext, AppContextType } from "../services/Context";
+import AppContextType from "../interfaces/AppContext";
+import { AppContext } from "../services/Context";
 
 interface Select {
   value: string;
@@ -8,6 +9,7 @@ interface Select {
 }
 
 const Select: FC<Select> = (props): JSX.Element => {
+  const { value, onChangeEvent } = props;
   const { labels } = React.useContext(AppContext) as AppContextType;
 
   const SORTING_OPTIONS = {
@@ -21,7 +23,7 @@ const Select: FC<Select> = (props): JSX.Element => {
   };
 
   return (
-    <select className="form-select mt-2" value={props.value} onChange={props.onChangeEvent}>
+    <select className="form-select mt-2" value={value} onChange={onChangeEvent}>
       {Object.entries(SORTING_OPTIONS).map(([key, value]) => (
         <option key={key} value={value}>
           {value}

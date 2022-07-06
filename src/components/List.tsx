@@ -8,9 +8,11 @@ interface Albums {
 }
 
 const List: FC<Albums> = (props): JSX.Element => {
+  const { albums } = props;
+
   return (
     <>
-      {props.albums.map((album: Album) => (
+      {albums.map((album: Album) => (
         <Card key={album.id} {...album} />
       ))}
     </>

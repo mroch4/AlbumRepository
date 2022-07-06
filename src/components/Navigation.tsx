@@ -1,6 +1,7 @@
 import React, { FC, MouseEventHandler } from "react";
 
-import { AppContext, AppContextType } from "../services/Context";
+import AppContextType from "../interfaces/AppContext";
+import { AppContext } from "../services/Context";
 
 interface Pagination {
   nextPageHandler: MouseEventHandler;
@@ -10,12 +11,11 @@ interface Pagination {
 }
 
 const Navigation: FC<Pagination> = (props): JSX.Element => {
+  const { nextPageHandler, previuosPageHandler, currentPage, totalPages } = props;
   const { lightTheme, labels } = React.useContext(AppContext) as AppContextType;
 
-  const { nextPageHandler, previuosPageHandler, currentPage, totalPages } = props;
-
   return (
-    <div className="d-flex justify-content-center align-items-center mt-4 pb-4">
+    <div className="pagination">
       <button
         className={lightTheme ? "btn btn-secondary-outline" : "btn btn-dark"}
         onClick={previuosPageHandler}

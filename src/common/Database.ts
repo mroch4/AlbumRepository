@@ -1,9 +1,11 @@
+import { v4 as uuid } from "uuid";
+
 import { TAGS } from "./Tags";
 import Album from "../interfaces/Album";
 
 export const ALBUMSDATABASE: Album[] = [
   {
-    id: 1,
+    id: uuid(),
     artist: "Deep Purple",
     title: "Made in Japan",
     year: 1972,
@@ -13,7 +15,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 2,
+    id: uuid(),
     artist: "Tool",
     title: "Undertow",
     year: 1993,
@@ -23,7 +25,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 3,
+    id: uuid(),
     artist: "Faith No More",
     title: "Angel Dust",
     year: 1992,
@@ -33,7 +35,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 4,
+    id: uuid(),
     artist: "Coma",
     title: "Pierwsze Wyjście z Mroku",
     year: 2004,
@@ -43,7 +45,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 5,
+    id: uuid(),
     artist: "Coma",
     title: "Zaprzepaszczone Siły Wielkiej Armii Świętych Znaków",
     year: 2006,
@@ -53,7 +55,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 6,
+    id: uuid(),
     artist: "Nightwish",
     title: "Highest Hopes: The Best of Nightwish",
     year: 2005,
@@ -63,7 +65,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 7,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "Freaky Styley",
     year: 1985,
@@ -73,7 +75,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 8,
+    id: uuid(),
     artist: "Soundgarden",
     title: "Down on the Upside",
     year: 1996,
@@ -83,7 +85,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 9,
+    id: uuid(),
     artist: "The Mars Volta",
     title: "Octahedron",
     year: 2009,
@@ -93,7 +95,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 10,
+    id: uuid(),
     artist: "Guns N' Roses",
     title: "Chinese Democracy",
     year: 2008,
@@ -103,7 +105,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 11,
+    id: uuid(),
     artist: "Don Broco",
     title: "Automatic",
     year: 2015,
@@ -113,7 +115,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 12,
+    id: uuid(),
     artist: "Soundgarden",
     title: "King Animal",
     year: 2012,
@@ -123,7 +125,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 13,
+    id: uuid(),
     artist: "I Am Giant",
     title: "Science and Survival",
     year: 2014,
@@ -133,7 +135,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 14,
+    id: uuid(),
     artist: "Don Broco",
     title: "Technology",
     year: 2018,
@@ -143,7 +145,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 15,
+    id: uuid(),
     artist: "Alice In Chains",
     title: "Facelift",
     year: 1990,
@@ -153,7 +155,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 16,
+    id: uuid(),
     artist: "Alice In Chains",
     title: "Dirt",
     year: 1992,
@@ -163,7 +165,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 17,
+    id: uuid(),
     artist: "Alice In Chains",
     title: "Jar of Flies",
     year: 1994,
@@ -173,7 +175,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 18,
+    id: uuid(),
     artist: "Audioslave",
     title: "Audioslave",
     year: 2002,
@@ -183,7 +185,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 19,
+    id: uuid(),
     artist: "Audioslave",
     title: "Out of Exile",
     year: 2005,
@@ -193,7 +195,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 20,
+    id: uuid(),
     artist: "Audioslave",
     title: "Revelations",
     year: 2006,
@@ -203,7 +205,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 21,
+    id: uuid(),
     artist: "Faith No More",
     title: "Introduce Yourself",
     year: 1987,
@@ -213,7 +215,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 22,
+    id: uuid(),
     artist: "Faith No More",
     title: "Album of the Year",
     year: 1997,
@@ -223,7 +225,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 23,
+    id: uuid(),
     artist: "Pearl Jam",
     title: "Ten",
     year: 1990,
@@ -233,7 +235,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 24,
+    id: uuid(),
     artist: "Porter Band",
     title: "Helicopters",
     year: 1980,
@@ -243,7 +245,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 25,
+    id: uuid(),
     artist: "Soundgarden",
     title: "Superunknown",
     year: 1994,
@@ -253,7 +255,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 26,
+    id: uuid(),
     artist: "Soundgarden",
     title: "Badmotorfinger",
     year: 1991,
@@ -263,7 +265,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 27,
+    id: uuid(),
     artist: "Scorpions",
     title: "Face the Heat",
     year: 1995,
@@ -273,7 +275,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 28,
+    id: uuid(),
     artist: "Temple of a Dog",
     title: "Temple of a Dog",
     year: 1991,
@@ -283,7 +285,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 29,
+    id: uuid(),
     artist: "Stone Temple Pilots",
     title: "Core",
     year: 1992,
@@ -293,7 +295,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 30,
+    id: uuid(),
     artist: "The Mars Volta",
     title: "Deloused in the Comatorium",
     year: 2004,
@@ -303,7 +305,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 31,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "The Dark Side of the Moon",
     year: 1973,
@@ -313,7 +315,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 32,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "Animals",
     year: 1975,
@@ -323,7 +325,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 33,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "Wish You Were Here",
     year: 1977,
@@ -333,7 +335,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 34,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "The Wall",
     year: 1979,
@@ -343,7 +345,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 35,
+    id: uuid(),
     artist: "Lower Than Atlantis",
     title: "Lower Than Atlantis",
     year: 2014,
@@ -353,7 +355,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 36,
+    id: uuid(),
     artist: "Lower Than Atlantis",
     title: "Safe in Sound",
     year: 2017,
@@ -363,7 +365,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 37,
+    id: uuid(),
     artist: "Porter Band",
     title: "Alexandria",
     year: 1993,
@@ -373,7 +375,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 38,
+    id: uuid(),
     artist: "Porter Band",
     title: "Porter Band '99",
     year: 1999,
@@ -383,7 +385,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 39,
+    id: uuid(),
     artist: "Porter Band",
     title: "Electric",
     year: 2000,
@@ -393,7 +395,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 40,
+    id: uuid(),
     artist: "Porter Band",
     title: "Psychodelikatesy",
     year: 2007,
@@ -403,7 +405,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 41,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "Mother's Milk",
     year: 1989,
@@ -413,7 +415,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 42,
+    id: uuid(),
     artist: "Soundgarden",
     title: "Louder than Love",
     year: 1989,
@@ -423,7 +425,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 43,
+    id: uuid(),
     artist: "Rage Against The Machine",
     title: "Rage Against The Machine",
     year: 1992,
@@ -433,7 +435,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 44,
+    id: uuid(),
     artist: "Rage Against The Machine",
     title: "Renegades",
     year: 2000,
@@ -443,7 +445,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 45,
+    id: uuid(),
     artist: "Rage Against The Machine",
     title: "The Battle of Los Angeles",
     year: 1999,
@@ -453,7 +455,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 46,
+    id: uuid(),
     artist: "Mama Selita",
     title: "3, 2, 1...!",
     year: 2011,
@@ -463,7 +465,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 47,
+    id: uuid(),
     artist: "I Am Giant",
     title: "The Horryfying Truth",
     year: 2011,
@@ -473,7 +475,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 48,
+    id: uuid(),
     artist: "I Am Giant",
     title: "Life in Captivity",
     year: 2018,
@@ -483,7 +485,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 49,
+    id: uuid(),
     artist: "Rammstein",
     title: "Mutter",
     year: 2001,
@@ -493,7 +495,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 50,
+    id: uuid(),
     artist: "Rammstein",
     title: "Reise, Reise",
     year: 2004,
@@ -503,7 +505,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 51,
+    id: uuid(),
     artist: "Nightwish",
     title: "Once",
     year: 2004,
@@ -513,7 +515,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 52,
+    id: uuid(),
     artist: "Nightwish",
     title: "Century Child",
     year: 2002,
@@ -523,7 +525,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 53,
+    id: uuid(),
     artist: "Coma",
     title: "Hipertrofia",
     year: 2011,
@@ -533,7 +535,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 54,
+    id: uuid(),
     artist: "Proletaryat",
     title: "Prawda",
     year: 2010,
@@ -543,7 +545,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 55,
+    id: uuid(),
     artist: "Alice In Chains",
     title: "Rainer Fog",
     year: 2018,
@@ -553,7 +555,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 56,
+    id: uuid(),
     artist: "Alice In Chains",
     title: "The Devil Put the Dinosaurs Here",
     year: 2013,
@@ -563,7 +565,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 57,
+    id: uuid(),
     artist: "Alice In Chains",
     title: "Black Gives Way to Blue",
     year: 2009,
@@ -573,7 +575,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 58,
+    id: uuid(),
     artist: "Stone Temple Pilots",
     title: "Stone Temple Pilots",
     year: 2010,
@@ -583,7 +585,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 59,
+    id: uuid(),
     artist: "Stone Temple Pilots",
     title: "No. 4",
     year: 1999,
@@ -593,7 +595,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 60,
+    id: uuid(),
     artist: "Stone Temple Pilots",
     title: "Shangri-LA DEE DA",
     year: 2001,
@@ -603,7 +605,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 61,
+    id: uuid(),
     artist: "Stone Temple Pilots",
     title: "High Rise",
     year: 2014,
@@ -613,7 +615,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 62,
+    id: uuid(),
     artist: "Stone Temple Pilots",
     title: "Purple",
     year: 1994,
@@ -623,7 +625,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 63,
+    id: uuid(),
     artist: "Velvet Revolver",
     title: "Libertad",
     year: 2007,
@@ -633,7 +635,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 64,
+    id: uuid(),
     artist: "Velvet Revolver",
     title: "Contraband",
     year: 2004,
@@ -643,7 +645,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 65,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "Pulse",
     year: 1995,
@@ -653,7 +655,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 66,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "The Division Bell",
     year: 1994,
@@ -663,7 +665,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 67,
+    id: uuid(),
     artist: "Nocny Kochanek",
     title: "Noc z Kochankiem",
     year: 2018,
@@ -673,7 +675,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 68,
+    id: uuid(),
     artist: "Tool",
     title: "Aenima",
     year: 1996,
@@ -683,7 +685,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 69,
+    id: uuid(),
     artist: "Tool",
     title: "Lateralus",
     year: 2001,
@@ -693,7 +695,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 70,
+    id: uuid(),
     artist: "Tool",
     title: "10,000 Days",
     year: 2006,
@@ -703,7 +705,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 71,
+    id: uuid(),
     artist: "Katatonia",
     title: "The Great Cold Distance",
     year: 2006,
@@ -713,7 +715,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 72,
+    id: uuid(),
     artist: "Katatonia",
     title: "Night is the New Day",
     year: 2009,
@@ -723,7 +725,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 73,
+    id: uuid(),
     artist: "Katatonia",
     title: "Dead End Kings",
     year: 2012,
@@ -733,7 +735,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 74,
+    id: uuid(),
     artist: "Houk",
     title: "Extra Pan",
     year: 2000,
@@ -743,7 +745,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 75,
+    id: uuid(),
     artist: "KSU",
     title: "XXX lecie - Akustycznie",
     year: 2008,
@@ -753,7 +755,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 76,
+    id: uuid(),
     artist: "Illusion",
     title: "Opowieści",
     year: 2014,
@@ -763,7 +765,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 77,
+    id: uuid(),
     artist: "Illusion",
     title: "Anhedonia",
     year: 2018,
@@ -773,7 +775,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 78,
+    id: uuid(),
     artist: "Illusion",
     title: "Illusion 3",
     year: 1995,
@@ -783,7 +785,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 79,
+    id: uuid(),
     artist: "Illusion",
     title: "Illusion 2",
     year: 1994,
@@ -793,7 +795,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 80,
+    id: uuid(),
     artist: "Florence And The Machine",
     title: "How Big, How Blue, How Beautiful",
     year: 2015,
@@ -803,7 +805,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 81,
+    id: uuid(),
     artist: "Rage Against The Machine",
     title: "Live at the Grand Olympic Auditorium",
     year: 2003,
@@ -813,7 +815,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 82,
+    id: uuid(),
     artist: "The Mars Volta",
     title: "Frances the Mute",
     year: 2005,
@@ -823,7 +825,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 83,
+    id: uuid(),
     artist: "The Mars Volta",
     title: "Amputechture",
     year: 2006,
@@ -833,7 +835,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 84,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "Blood Sugar Sex Magik",
     year: 1991,
@@ -843,7 +845,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 85,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "One Hot Minute",
     year: 1995,
@@ -853,7 +855,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 86,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "Californication",
     year: 1999,
@@ -863,7 +865,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 87,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "By the Way",
     year: 2002,
@@ -873,7 +875,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 88,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "Stadium Arcadium",
     year: 2006,
@@ -883,7 +885,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 89,
+    id: uuid(),
     artist: "Red Hot Chili Peppers",
     title: "I'm with You",
     year: 2011,
@@ -893,7 +895,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 90,
+    id: uuid(),
     artist: "Ataxia",
     title: "Automatic Writing",
     year: 2004,
@@ -903,7 +905,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 91,
+    id: uuid(),
     artist: "Dance Gavin Dance",
     title: "Mothership",
     year: 2016,
@@ -913,7 +915,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 92,
+    id: uuid(),
     artist: "Dance Gavin Dance",
     title: "Artificial Selection",
     year: 2018,
@@ -923,7 +925,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 93,
+    id: uuid(),
     artist: "Dance Gavin Dance",
     title: "Afterburner",
     year: 2020,
@@ -933,7 +935,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 94,
+    id: uuid(),
     artist: "Royal Blood",
     title: "Royal Blood",
     year: 2014,
@@ -943,7 +945,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 95,
+    id: uuid(),
     artist: "Royal Blood",
     title: "Typhoons",
     year: 2021,
@@ -953,7 +955,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 96,
+    id: uuid(),
     artist: "Young Guns",
     title: "Ones and Zeros",
     year: 2015,
@@ -963,7 +965,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 97,
+    id: uuid(),
     artist: "Young Guns",
     title: "Echoes",
     year: 2016,
@@ -973,7 +975,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 98,
+    id: uuid(),
     artist: "Brathanki",
     title: "Ano!",
     year: 2000,
@@ -983,7 +985,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 99,
+    id: uuid(),
     artist: "Die Antwoord",
     title: "Tension",
     year: 2012,
@@ -993,7 +995,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 100,
+    id: uuid(),
     artist: "Die Antwoord",
     title: "Donker Mag",
     year: 2014,
@@ -1003,7 +1005,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 101,
+    id: uuid(),
     artist: "Terrorvision",
     title: "Regular Urban Survivors",
     year: 1995,
@@ -1013,7 +1015,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 102,
+    id: uuid(),
     artist: "Wardruna",
     title: "Runaljod - gap var Ginnunga",
     year: 2009,
@@ -1023,7 +1025,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 103,
+    id: uuid(),
     artist: "Arctic Monkeys",
     title: "AM",
     year: 2013,
@@ -1033,7 +1035,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 104,
+    id: uuid(),
     artist: "Audioslave",
     title: "Covers & Rare",
     year: 2006,
@@ -1043,7 +1045,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 105,
+    id: uuid(),
     artist: "Iron Maiden",
     title: "A Matter of Life and Death",
     year: 2006,
@@ -1053,7 +1055,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 106,
+    id: uuid(),
     artist: "Don Broco",
     title: "Priorities",
     year: 2011,
@@ -1063,7 +1065,7 @@ export const ALBUMSDATABASE: Album[] = [
     clicked: 0,
   },
   {
-    id: 107,
+    id: uuid(),
     artist: "Pink Floyd",
     title: "Delicate Sound of Thunder",
     year: 1988,

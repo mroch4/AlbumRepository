@@ -7,10 +7,12 @@ interface Input {
 }
 
 const Input: FC<Input> = (props): JSX.Element => {
+  const { query, onChangeEvent, onClickEvent } = props;
+
   return (
     <>
-      <input type="text" className="form-control" value={props.query} onChange={props.onChangeEvent} />
-      {props.query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={props.onClickEvent}></button> : null}
+      <input type="text" className="form-control" value={props.query} onChange={onChangeEvent} />
+      {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={onClickEvent}></button> : null}
     </>
   );
 };

@@ -11,7 +11,7 @@ const Card: FC<Album> = (props): JSX.Element => {
   const imgAlt = `Cover of ${title} by ${artist}`;
 
   return (
-    <div className="card mt-3 p-2">
+    <div className="card">
       <div className="d-flex flex-row">
         <div className="cover">
           <a href={spotifyLink} className={spotifyUrl ? "pointer" : "disabled"} target="_blank" rel="noreferrer">

@@ -24,9 +24,9 @@ body {
 }
 
 .topnav .logo {
-  font-size: 2.25rem;
   font-family: "Six Caps", sans-serif;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.2rem;
+  font-size: 2.75rem;
 }
 
 .btn-close {
@@ -56,6 +56,8 @@ body {
 }
 
 .card {
+  margin-top: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -78,6 +80,20 @@ body {
   padding: 0.1rem 0.25rem;
   border-radius: 0.15rem;
   background-color: var(--pill-color);
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .spacer {

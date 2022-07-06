@@ -1,20 +1,11 @@
 import React, { FC, useEffect } from "react";
 
-import { getAlbums } from "./Firebase";
 import { ALBUMSDATABASE } from "../common/Database";
 import LABELS from "../common/Labels";
 import { SETTINGS } from "../common/Settings";
 import Album from "../interfaces/Album";
+import AppContextType from "../interfaces/AppContext";
 import { LabelsValues } from "../interfaces/Labels";
-
-export type AppContextType = {
-  albumsDatabase: Album[];
-  lightTheme: boolean;
-  changeTheme: (lightTheme: boolean) => void;
-  countryCode: string;
-  changeCountryCode: (countryCode: string) => void;
-  labels: LabelsValues;
-};
 
 export const AppContext = React.createContext<AppContextType | null>(null);
 
@@ -28,12 +19,11 @@ const ContextProvider: FC<ContextProps> = ({ children }) => {
   const [countryCode, setCountryCode] = React.useState<string>(LABELS[SETTINGS.LANGUAGE].countryCode);
   const [labels, setLabels] = React.useState<LabelsValues>(LABELS[SETTINGS.LANGUAGE].values);
 
-  useEffect(() => {
-    getAlbums();
-  }, []);
+  // useEffect(() => {
+  //   getAlbums();
+  // }, []);
 
   useEffect(() => {
-    // getAlbums();
     const languagePack = LABELS.find((set) => set.countryCode === countryCode)?.values;
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     setLabels(languagePack!);
