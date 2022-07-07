@@ -1,12 +1,9 @@
 import React, { FC } from "react";
 
 import Tag from "./Tag";
+import { TagsProps } from "../interfaces/props/TagsProps";
 
-interface Tags {
-  tags: string[];
-}
-
-const TagList: FC<Tags> = (props): JSX.Element => {
+const TagList: FC<TagsProps> = (props): JSX.Element => {
   const { tags } = props;
 
   return (

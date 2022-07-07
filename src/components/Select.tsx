@@ -1,16 +1,13 @@
-import React, { FC, ChangeEventHandler } from "react";
+import React, { FC } from "react";
 
-import AppContextType from "../interfaces/AppContext";
+import ContextProps from "../interfaces/props/ContextProps";
+import { SelectProps } from "../interfaces/props/SelectProps";
 import { AppContext } from "../services/Context";
 
-interface Select {
-  value: string;
-  onChangeEvent: ChangeEventHandler<HTMLSelectElement>;
-}
-
-const Select: FC<Select> = (props): JSX.Element => {
+const Select: FC<SelectProps> = (props): JSX.Element => {
   const { value, onChangeEvent } = props;
-  const { labels } = React.useContext(AppContext) as AppContextType;
+
+  const { labels } = React.useContext(AppContext) as ContextProps;
 
   const SORTING_OPTIONS = {
     ARTIST_ASCENDING: labels.ARTIST_ASCENDING,

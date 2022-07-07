@@ -1,18 +1,13 @@
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC, useContext } from "react";
 
-import AppContextType from "../interfaces/AppContext";
+import ContextProps from "../interfaces/props/ContextProps";
+import { PaginationProps } from "../interfaces/props/PaginationProps";
 import { AppContext } from "../services/Context";
 
-interface Pagination {
-  nextPageHandler: MouseEventHandler;
-  previuosPageHandler: MouseEventHandler;
-  currentPage: number;
-  totalPages: number;
-}
-
-const Navigation: FC<Pagination> = (props): JSX.Element => {
+const Navigation: FC<PaginationProps> = (props): JSX.Element => {
   const { nextPageHandler, previuosPageHandler, currentPage, totalPages } = props;
-  const { lightTheme, labels } = React.useContext(AppContext) as AppContextType;
+
+  const { lightTheme, labels } = useContext(AppContext) as ContextProps;
 
   return (
     <div className="pagination">

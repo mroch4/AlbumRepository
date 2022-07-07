@@ -1,6 +1,6 @@
 import { Labels } from "../interfaces/Labels";
 
-const LABELS: Labels[] = [
+const labels: Labels[] = [
   {
     countryCode: "en",
     values: {
@@ -71,4 +71,4 @@ const LABELS: Labels[] = [
   },
 ];
 
-export default LABELS;
+export default labels;

@@ -1,18 +1,17 @@
-import React, { FC, ChangeEventHandler, MouseEventHandler } from "react";
+import React, { FC, useContext, useRef } from "react";
 
-interface Input {
-  query: string;
-  onChangeEvent: ChangeEventHandler<HTMLInputElement>;
-  onClickEvent: MouseEventHandler<HTMLButtonElement>;
-}
+import ContextProps from "../interfaces/props/ContextProps";
+import { AppContext } from "../services/Context";
 
-const Input: FC<Input> = (props): JSX.Element => {
-  const { query, onChangeEvent, onClickEvent } = props;
+const Input: FC = (): JSX.Element => {
+  const { query, changeQuery } = useContext(AppContext) as ContextProps;
+
+  const ref = useRef<HTMLInputElement>(null);
 
   return (
     <>
-      <input type="text" className="form-control" value={props.query} onChange={onChangeEvent} />
-      {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={onClickEvent}></button> : null}
+      <input type="text" className="form-control" value={query} ref={ref} onChange={() => changeQuery(ref.current?.value)} />
+      {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={() => changeQuery("")}></button> : null}
     </>
   );
 };

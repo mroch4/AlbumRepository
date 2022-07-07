@@ -1,13 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 
 import LABELS from "../common/Labels";
-import AppContextType from "../interfaces/AppContext";
-import { AppContext, ContextProps } from "../services/Context";
+import ContextProps from "../interfaces/props/ContextProps";
+import { ContextProviderProps } from "../interfaces/props/ContextProviderProps";
+import { AppContext } from "../services/Context";
 
-const ContextToggler: FC<ContextProps> = ({ children }) => {
-  const { lightTheme, changeTheme, countryCode, changeCountryCode, labels } = React.useContext(AppContext) as AppContextType;
-
-  const isPL = countryCode === LABELS[0].countryCode;
+const ContextToggler: FC<ContextProviderProps> = ({ children }) => {
+  const { lightTheme, changeTheme, countryCode, changeCountryCode, labels, changeQuery } = useContext(AppContext) as ContextProps;
 
   const handleThemeChange = () => {
     changeTheme(!lightTheme);
@@ -24,6 +23,7 @@ const ContextToggler: FC<ContextProps> = ({ children }) => {
     }
   };
 
+  const isPL = countryCode === LABELS[0].countryCode;
   const handleLanguageChange = () => {
     if (isPL) {
       changeCountryCode(LABELS[1].countryCode);
@@ -35,7 +35,9 @@ const ContextToggler: FC<ContextProps> = ({ children }) => {
   return (
     <div>
       <div className="container topnav">
-        <span className="logo">Albums Repository</span>
+        <span className="logo pointer" onClick={() => changeQuery("")}>
+          Albums Repository
+        </span>
         <div className="form-check d-flex flex-column">
           <label className="form-check-label">
             <input className="form-check-input" type="checkbox" checked={isPL} onChange={handleLanguageChange} />

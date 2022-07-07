@@ -1,33 +1,35 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useState, useEffect, useContext, ChangeEvent } from "react";
 
 import Checkbox from "./Checkbox";
 import Counter from "./Counter";
 import Desc from "./Desc";
+import Dropdown from "./Dropdown";
 import Input from "./Input";
 import List from "./List";
 import Loader from "./Loader";
 import Navigation from "./Navigation";
 import Select from "./Select";
 import Spacer from "./Spacer";
-import { SETTINGS } from "../common/Settings";
-import { TAGS } from "../common/Tags";
+import SETTINGS from "../common/Settings";
 import Album from "../interfaces/Album";
-import AppContextType from "../interfaces/AppContext";
+import ContextProps from "../interfaces/props/ContextProps";
+import { CheckboxProps } from "../interfaces/props/CheckboxProps";
+import { PaginationProps } from "../interfaces/props/PaginationProps";
+import { SelectProps } from "../interfaces/props/SelectProps";
 import { AppContext } from "../services/Context";
 import Pagination from "../services/Pagination";
 
 const Layout = (): JSX.Element => {
-  const { albumsDatabase, labels } = React.useContext(AppContext) as AppContextType;
-  const [queriedData, setQueriedData] = useState(albumsDatabase);
-  const [dataLoaded, setDataLoaded] = useState(false);
+  const { albumsDatabase, labels, query, tag } = useContext(AppContext) as ContextProps;
 
-  const [query, setQuery] = useState<string>("");
-  const [currentTag, setCurrentTag] = useState<string>("all");
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [queriedData, setQueriedData] = useState(albumsDatabase);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
   const [searchByArtist, setSearchByArtist] = useState<boolean>(SETTINGS.SEARCHBYARTIST_ONLOAD);
   const [searchByTitle, setSearchByTitle] = useState<boolean>(SETTINGS.SEARCHBYTITLE_ONLOAD);
   const [searchByYear, setSearchByYear] = useState<boolean>(SETTINGS.SEARCHBYYEAR_ONLOAD);
   const [sortingOption, setSortingOption] = useState<string>(labels.YEAR_DESCENDING);
-  const [currentPage, setCurrentPage] = useState<number>(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -45,7 +47,7 @@ const Layout = (): JSX.Element => {
             (searchByTitle && a.title.toLowerCase().includes(query.toLowerCase())) ||
             (searchByYear && a.year.toString().endsWith(query))
         )
-        .filter((a: Album) => (currentTag === "all" ? a : a.tags?.includes(currentTag)))
+        .filter((a: Album) => (tag === "all" ? a : a.tags?.includes(tag)))
         .sort((a: Album, b: Album): number => {
           switch (sortingOption) {
             case labels.ARTIST_ASCENDING:
@@ -76,59 +78,63 @@ const Layout = (): JSX.Element => {
         })
     );
     setCurrentPage(0);
-  }, [query, searchByArtist, searchByTitle, searchByYear, sortingOption, currentTag]);
-
-  const view = new Pagination(queriedData);
-  const totalPages = view.getTotalPages();
+  }, [query, searchByArtist, searchByTitle, searchByYear, sortingOption, tag]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  const artistCheckboxProps: CheckboxProps = {
+    checked: searchByArtist,
+    onChangeEvent: () => setSearchByArtist(!searchByArtist),
+    label: labels.SEARCHBYARTIST,
+  };
+
+  const titleCheckboxProps: CheckboxProps = {
+    checked: searchByTitle,
+    onChangeEvent: () => setSearchByTitle(!searchByTitle),
+    label: labels.SEARCHBYTITLE,
+  };
+
+  const yearCheckboxProps: CheckboxProps = {
+    checked: searchByYear,
+    onChangeEvent: () => setSearchByYear(!searchByYear),
+    label: labels.SEARCHBYYEAR,
+  };
+
+  const selectProps: SelectProps = {
+    value: sortingOption,
+    onChangeEvent: (e: ChangeEvent<HTMLSelectElement>) => setSortingOption(e.currentTarget.value),
+  };
+
+  const view = new Pagination(queriedData);
+  const totalPages = view.getTotalPages();
+  const navProps: PaginationProps = {
+    nextPageHandler: () => setCurrentPage(currentPage + 1),
+    previuosPageHandler: () => setCurrentPage(currentPage - 1),
+    currentPage: currentPage,
+    totalPages: totalPages,
+  };
+
   return (
     <div className="container mt-2">
       <div className="input-group">
-        {/* <Dropdown currentTag={currentTag} onClickEvent={(e) => setCurrentTag(e.target.value)} /> */}
-        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {currentTag.toUpperCase()}&nbsp;
-        </button>
-        <ul className="dropdown-menu dropdown-menu-start">
-          {Object.entries(TAGS).map(([key, value]) => (
-            <li key={key} className="pointer">
-              <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={() => setCurrentTag(value)}>
-                {value.toUpperCase()}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <Input
-          query={query}
-          onChangeEvent={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.currentTarget.value)}
-          onClickEvent={() => setQuery("")}
-        />
+        <Dropdown />
+        <Input />
       </div>
-      <Select value={sortingOption} onChangeEvent={(e: ChangeEvent<HTMLSelectElement>) => setSortingOption(e.currentTarget.value)} />
+      <Select {...selectProps} />
       <div className="my-2">
-        <Checkbox checked={searchByArtist} onChangeEvent={() => setSearchByArtist(!searchByArtist)} label={labels.SEARCHBYARTIST} />
-        <Checkbox checked={searchByTitle} onChangeEvent={() => setSearchByTitle(!searchByTitle)} label={labels.SEARCHBYTITLE} />
-        <Checkbox checked={searchByYear} onChangeEvent={() => setSearchByYear(!searchByYear)} label={labels.SEARCHBYYEAR} />
+        <Checkbox {...artistCheckboxProps} />
+        <Checkbox {...titleCheckboxProps} />
+        <Checkbox {...yearCheckboxProps} />
       </div>
 
       {dataLoaded ? (
         <>
           <Counter count={queriedData.length} />
-          <Desc tag={currentTag} />
+          <Desc />
           <List albums={view.getPage(currentPage)} />
-          {totalPages > 1 ? (
-            <Navigation
-              nextPageHandler={() => setCurrentPage(currentPage + 1)}
-              previuosPageHandler={() => setCurrentPage(currentPage - 1)}
-              currentPage={currentPage}
-              totalPages={totalPages}
-            ></Navigation>
-          ) : (
-            <Spacer />
-          )}
+          {totalPages > 1 ? <Navigation {...navProps}></Navigation> : <Spacer />}
         </>
       ) : (
         <Loader />

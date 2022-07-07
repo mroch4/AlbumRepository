@@ -1,18 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 
 import { TAGS } from "../common/Tags";
-import { AppContextType } from "../interfaces/AppContext";
+import ContextProps from "../interfaces/props/ContextProps";
 import { AppContext } from "../services/Context";
 
-interface Tag {
-  tag: string;
-}
+const Desc: FC = (): JSX.Element => {
+  const { labels, tag } = useContext(AppContext) as ContextProps;
 
-const Desc: FC<Tag> = (props): JSX.Element => {
-  const { tag } = props;
-  const { labels } = React.useContext(AppContext) as AppContextType;
-
-  const getDesc = (tag: string): string => {
+  const getDesc = (): string => {
     switch (tag) {
       case TAGS[0]:
         return labels.TAGS_DESC[0];
@@ -39,7 +34,7 @@ const Desc: FC<Tag> = (props): JSX.Element => {
     }
   };
 
-  return <span className="fw-lighter fst-italic">{getDesc(tag)}</span>;
+  return <span className="fw-lighter fst-italic">{getDesc()}</span>;
 };
 
 export default Desc;

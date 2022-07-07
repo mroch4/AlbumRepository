@@ -1,10 +1,17 @@
-import React, { FC } from "react";
+import React, { FC, useContext, useRef } from "react";
 
 import TagList from "./TagList";
-import Album from "../interfaces/Album";
+import ContextProps from "../interfaces/props/ContextProps";
+import { CardProps } from "../interfaces/props/CardProps";
+import { AppContext } from "../services/Context";
 
-const Card: FC<Album> = (props): JSX.Element => {
-  const { artist, title, year, tags, coverUrl, spotifyUrl } = props;
+const Card: FC<CardProps> = (props): JSX.Element => {
+  const { artist, title, year, tags, coverUrl, spotifyUrl } = props.album;
+
+  const { changeQuery } = useContext(AppContext) as ContextProps;
+
+  const artistRef = useRef<HTMLDivElement>(null);
+  const yearRef = useRef<HTMLDivElement>(null);
 
   const spotifyLink = `https://open.spotify.com/album/${spotifyUrl}`;
   const imgSource = `covers/${coverUrl}.jpg`;
@@ -20,9 +27,13 @@ const Card: FC<Album> = (props): JSX.Element => {
         </div>
         <div className="info">
           <div>
-            <div>{artist}</div>
+            <div className="pointer" ref={artistRef} onClick={() => changeQuery(artistRef.current?.innerText)}>
+              {artist}
+            </div>
             <div>{title}</div>
-            <div>{year}</div>
+            <div className="pointer" ref={yearRef} onClick={() => changeQuery(yearRef.current?.innerText)}>
+              {year}
+            </div>
           </div>
           {tags ? <TagList tags={tags} /> : null}
         </div>

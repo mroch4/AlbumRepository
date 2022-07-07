@@ -1,6 +1,6 @@
 import Settings from "../interfaces/Settings";
 
-export const SETTINGS: Settings = {
+const settings: Settings = {
   LANGUAGE: 1,
   LIGHT_THEME: false,
   LOADING_TIMEOUT: 1000,
@@ -9,3 +9,5 @@ export const SETTINGS: Settings = {
   SEARCHBYYEAR_ONLOAD: true,
   PAGINATION_PAGESIZE: 10,
 };
+
+export default settings;

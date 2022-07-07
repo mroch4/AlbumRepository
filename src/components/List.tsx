@@ -2,18 +2,15 @@ import React, { FC } from "react";
 
 import Card from "./Card";
 import Album from "../interfaces/Album";
+import { ListProps } from "../interfaces/props/ListProps";
 
-interface Albums {
-  albums: Album[];
-}
-
-const List: FC<Albums> = (props): JSX.Element => {
+const List: FC<ListProps> = (props): JSX.Element => {
   const { albums } = props;
 
   return (
     <>
       {albums.map((album: Album) => (
-        <Card key={album.id} {...album} />
+        <Card key={album.id} album={album} />
       ))}
     </>
   );

@@ -1,34 +1,23 @@
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC, useContext, useRef } from "react";
 
 import { TAGS } from "../common/Tags";
+import ContextProps from "../interfaces/props/ContextProps";
+import { AppContext } from "../services/Context";
 
-interface TagDropdown {
-  currentTag: string;
-  onClickEvent: MouseEventHandler<HTMLAnchorElement>;
-}
+const Dropdown: FC = (): JSX.Element => {
+  const { tag, changeTag } = useContext(AppContext) as ContextProps;
 
-const Dropdown: FC<TagDropdown> = (props): JSX.Element => {
-  const { currentTag } = props;
-
-  // const handleOnClick = (e: MouseEvent<HTMLAnchorElement>) => {
-  //   e.preventDefault();
-  //   props.onClickEvent(e.currentTarget.value);
-  // };
-
-  //TODO - pass a anchor element innerHTML value to set currentTag
-  const handleOnClick = () => {
-    console.log("tag");
-  };
+  const ref = useRef<HTMLAnchorElement>(null);
 
   return (
     <>
       <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {props.currentTag.toUpperCase()}&nbsp;
+        {tag.toUpperCase()}&nbsp;
       </button>
       <ul className="dropdown-menu dropdown-menu-end">
         {Object.entries(TAGS).map(([key, value]) => (
           <li key={key} className="pointer">
-            <a className={currentTag === value ? "active dropdown-item" : "dropdown-item"} onClick={handleOnClick}>
+            <a className={tag === value ? "active dropdown-item" : "dropdown-item"} ref={ref} onClick={() => changeTag(value)}>
               {value.toUpperCase()}
             </a>
           </li>

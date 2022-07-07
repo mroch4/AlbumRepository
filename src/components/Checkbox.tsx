@@ -1,12 +1,8 @@
-import React, { FC, ChangeEventHandler } from "react";
+import React, { FC } from "react";
 
-interface Checkbox {
-  checked: boolean;
-  onChangeEvent: ChangeEventHandler<HTMLInputElement>;
-  label: string;
-}
+import { CheckboxProps } from "../interfaces/props/CheckboxProps";
 
-const Checkbox: FC<Checkbox> = (props): JSX.Element => {
+const Checkbox: FC<CheckboxProps> = (props): JSX.Element => {
   const { checked, onChangeEvent, label } = props;
 
   return (

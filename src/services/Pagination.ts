@@ -1,4 +1,4 @@
-import { SETTINGS } from "../common/Settings";
+import SETTINGS from "../common/Settings";
 import Album from "../interfaces/Album";
 
 class Pagination {

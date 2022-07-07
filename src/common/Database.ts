@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { TAGS } from "./Tags";
 import Album from "../interfaces/Album";
 
-export const ALBUMSDATABASE: Album[] = [
+export const database: Album[] = [
   {
     id: uuid(),
     artist: "Deep Purple",

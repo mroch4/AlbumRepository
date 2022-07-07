@@ -5,7 +5,6 @@ Addtionally, a project to learn complex searching, sorting and ordering of datas
 
 ## TODOs:
 
-Get HTMLAnchorElement and HTMLDivElement innerText (TS MouseEventHandler typing issue) to set the query onClick\
 Use Firebase connection to store the albums data
 
 ## Page URL:

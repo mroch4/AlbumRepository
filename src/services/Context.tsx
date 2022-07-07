@@ -1,23 +1,22 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useState, useEffect, createContext } from "react";
 
-import { ALBUMSDATABASE } from "../common/Database";
+import { database } from "../common/Database";
 import LABELS from "../common/Labels";
-import { SETTINGS } from "../common/Settings";
+import SETTINGS from "../common/Settings";
+import ContextProps from "../interfaces/props/ContextProps";
+import { ContextProviderProps } from "../interfaces/props/ContextProviderProps";
 import Album from "../interfaces/Album";
-import AppContextType from "../interfaces/AppContext";
 import { LabelsValues } from "../interfaces/Labels";
 
-export const AppContext = React.createContext<AppContextType | null>(null);
+export const AppContext = createContext<ContextProps | null>(null);
 
-export interface ContextProps {
-  children: React.ReactNode;
-}
-
-const ContextProvider: FC<ContextProps> = ({ children }) => {
-  const [albumsDatabase] = React.useState<Album[]>(ALBUMSDATABASE);
-  const [lightTheme, setThemeMode] = React.useState<boolean>(SETTINGS.LIGHT_THEME);
-  const [countryCode, setCountryCode] = React.useState<string>(LABELS[SETTINGS.LANGUAGE].countryCode);
-  const [labels, setLabels] = React.useState<LabelsValues>(LABELS[SETTINGS.LANGUAGE].values);
+const ContextProvider: FC<ContextProviderProps> = ({ children }) => {
+  const [albumsDatabase] = useState<Album[]>(database);
+  const [lightTheme, setThemeMode] = useState<boolean>(SETTINGS.LIGHT_THEME);
+  const [countryCode, setCountryCode] = useState<string>(LABELS[SETTINGS.LANGUAGE].countryCode);
+  const [labels, setLabels] = useState<LabelsValues>(LABELS[SETTINGS.LANGUAGE].values);
+  const [query, setQuery] = useState<string>("");
+  const [tag, setTag] = useState<string>("all");
 
   // useEffect(() => {
   //   getAlbums();
@@ -36,6 +35,10 @@ const ContextProvider: FC<ContextProps> = ({ children }) => {
     countryCode: countryCode,
     changeCountryCode: setCountryCode,
     labels: labels,
+    query: query,
+    changeQuery: setQuery,
+    tag: tag,
+    changeTag: setTag,
   };
 
   return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;

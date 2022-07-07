@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 
-interface SingleTag {
-  tag: string;
-}
+import { TagProps } from "../interfaces/props/TagsProps";
 
-const Tag: FC<SingleTag> = (props): JSX.Element => {
+const Tag: FC<TagProps> = (props): JSX.Element => {
   const { tag } = props;
 
   return <span className="pill me-2">{tag}</span>;
