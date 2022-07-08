@@ -1,11 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 
-import { TagProps } from "../interfaces/props/TagsProps";
+import { ITagProps } from "../interfaces/props/ITagsProps";
+import { useAppContext } from "./Context";
 
-const Tag: FC<TagProps> = (props): JSX.Element => {
+const Tag: FC<ITagProps> = (props): JSX.Element => {
   const { tag } = props;
 
-  return <span className="pill me-2">{tag}</span>;
+  const { changeTag } = useAppContext();
+
+  const ref = useRef<HTMLSpanElement>(null);
+
+  return (
+    <span className="pill pointer" ref={ref} onClick={() => changeTag(ref.current?.innerText)}>
+      {tag}
+    </span>
+  );
 };
 
 export default Tag;

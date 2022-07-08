@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
 import { child, get, getDatabase, ref } from "firebase/database";
+
+import { initializeApp } from "firebase/app";
 
 const app = initializeApp({
   apiKey: "AIzaSyCSd1F8tg9Dvei4SANFkiz-ns5p7gZWEGs",

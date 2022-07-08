@@ -1,12 +1,11 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 
+import { IContextProviderProps } from "../interfaces/props/IContextProviderProps";
 import LABELS from "../common/Labels";
-import ContextProps from "../interfaces/props/ContextProps";
-import { ContextProviderProps } from "../interfaces/props/ContextProviderProps";
-import { AppContext } from "../services/Context";
+import { useAppContext } from "./Context";
 
-const ContextToggler: FC<ContextProviderProps> = ({ children }) => {
-  const { lightTheme, changeTheme, countryCode, changeCountryCode, labels, changeQuery } = useContext(AppContext) as ContextProps;
+const ContextToggler: FC<IContextProviderProps> = ({ children }) => {
+  const { lightTheme, changeTheme, countryCode, changeCountryCode, labels, changeQuery, changeTag } = useAppContext();
 
   const handleThemeChange = () => {
     changeTheme(!lightTheme);
@@ -32,10 +31,15 @@ const ContextToggler: FC<ContextProviderProps> = ({ children }) => {
     }
   };
 
+  const handleLogoClick = () => {
+    changeQuery("");
+    changeTag("all");
+  };
+
   return (
     <div>
       <div className="container topnav">
-        <span className="logo pointer" onClick={() => changeQuery("")}>
+        <span className="logo pointer" onClick={handleLogoClick}>
           Albums Repository
         </span>
         <div className="form-check d-flex flex-column">

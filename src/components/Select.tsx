@@ -1,13 +1,12 @@
 import React, { FC } from "react";
 
-import ContextProps from "../interfaces/props/ContextProps";
-import { SelectProps } from "../interfaces/props/SelectProps";
-import { AppContext } from "../services/Context";
+import { ISelectProps } from "../interfaces/props/ISelectProps";
+import { useAppContext } from "./Context";
 
-const Select: FC<SelectProps> = (props): JSX.Element => {
+const Select: FC<ISelectProps> = (props): JSX.Element => {
   const { value, onChangeEvent } = props;
 
-  const { labels } = React.useContext(AppContext) as ContextProps;
+  const { labels } = useAppContext();
 
   const SORTING_OPTIONS = {
     ARTIST_ASCENDING: labels.ARTIST_ASCENDING,

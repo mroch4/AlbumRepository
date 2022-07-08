@@ -1,4 +1,4 @@
-interface Album {
+interface IAlbum {
   id: string;
   artist: string;
   title: string;
@@ -9,4 +9,4 @@ interface Album {
   clicked: number;
 }
 
-export default Album;
+export default IAlbum;

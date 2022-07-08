@@ -1,4 +1,4 @@
-interface Settings {
+interface ISettings {
   LANGUAGE: number;
   LIGHT_THEME: boolean;
   LOADING_TIMEOUT: number;
@@ -8,4 +8,4 @@ interface Settings {
   PAGINATION_PAGESIZE: number;
 }
 
-export default Settings;
+export default ISettings;

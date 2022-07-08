@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { CheckboxProps } from "../interfaces/props/CheckboxProps";
+import { ICheckboxProps } from "../../interfaces/props/ICheckboxProps";
 
-const Checkbox: FC<CheckboxProps> = (props): JSX.Element => {
+const Checkbox: FC<ICheckboxProps> = (props): JSX.Element => {
   const { checked, onChangeEvent, label } = props;
 
   return (

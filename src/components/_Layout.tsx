@@ -1,26 +1,25 @@
-import React, { useState, useEffect, useContext, ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
-import Checkbox from "./Checkbox";
+import Checkbox from "./_partials/_Checkbox";
 import Counter from "./Counter";
-import Desc from "./Desc";
+import Description from "./Description";
 import Dropdown from "./Dropdown";
+import IAlbum from "../interfaces/IAlbum";
+import { ICheckboxProps } from "../interfaces/props/ICheckboxProps";
+import { IPaginationProps } from "../interfaces/props/IPaginationProps";
+import { ISelectProps } from "../interfaces/props/ISelectProps";
 import Input from "./Input";
 import List from "./List";
 import Loader from "./Loader";
 import Navigation from "./Navigation";
+import Pagination from "../services/Pagination";
+import SETTINGS from "../common/Settings";
 import Select from "./Select";
 import Spacer from "./Spacer";
-import SETTINGS from "../common/Settings";
-import Album from "../interfaces/Album";
-import ContextProps from "../interfaces/props/ContextProps";
-import { CheckboxProps } from "../interfaces/props/CheckboxProps";
-import { PaginationProps } from "../interfaces/props/PaginationProps";
-import { SelectProps } from "../interfaces/props/SelectProps";
-import { AppContext } from "../services/Context";
-import Pagination from "../services/Pagination";
+import { useAppContext } from "./Context";
 
 const Layout = (): JSX.Element => {
-  const { albumsDatabase, labels, query, tag } = useContext(AppContext) as ContextProps;
+  const { albumsDatabase, labels, query, tag } = useAppContext();
 
   const [dataLoaded, setDataLoaded] = useState(false);
   const [queriedData, setQueriedData] = useState(albumsDatabase);
@@ -42,13 +41,13 @@ const Layout = (): JSX.Element => {
     setQueriedData(() =>
       albumsDatabase
         .filter(
-          (a: Album) =>
+          (a: IAlbum) =>
             (searchByArtist && a.artist.toLowerCase().includes(query.toLowerCase())) ||
             (searchByTitle && a.title.toLowerCase().includes(query.toLowerCase())) ||
             (searchByYear && a.year.toString().endsWith(query))
         )
-        .filter((a: Album) => (tag === "all" ? a : a.tags?.includes(tag)))
-        .sort((a: Album, b: Album): number => {
+        .filter((a: IAlbum) => (tag === "all" ? a : a.tags?.includes(tag)))
+        .sort((a: IAlbum, b: IAlbum): number => {
           switch (sortingOption) {
             case labels.ARTIST_ASCENDING:
               if (a.artist < b.artist) return -1;
@@ -84,32 +83,32 @@ const Layout = (): JSX.Element => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  const artistCheckboxProps: CheckboxProps = {
+  const artistCheckboxProps: ICheckboxProps = {
     checked: searchByArtist,
     onChangeEvent: () => setSearchByArtist(!searchByArtist),
     label: labels.SEARCHBYARTIST,
   };
 
-  const titleCheckboxProps: CheckboxProps = {
+  const titleCheckboxProps: ICheckboxProps = {
     checked: searchByTitle,
     onChangeEvent: () => setSearchByTitle(!searchByTitle),
     label: labels.SEARCHBYTITLE,
   };
 
-  const yearCheckboxProps: CheckboxProps = {
+  const yearCheckboxProps: ICheckboxProps = {
     checked: searchByYear,
     onChangeEvent: () => setSearchByYear(!searchByYear),
     label: labels.SEARCHBYYEAR,
   };
 
-  const selectProps: SelectProps = {
+  const selectProps: ISelectProps = {
     value: sortingOption,
     onChangeEvent: (e: ChangeEvent<HTMLSelectElement>) => setSortingOption(e.currentTarget.value),
   };
 
   const view = new Pagination(queriedData);
   const totalPages = view.getTotalPages();
-  const navProps: PaginationProps = {
+  const navProps: IPaginationProps = {
     nextPageHandler: () => setCurrentPage(currentPage + 1),
     previuosPageHandler: () => setCurrentPage(currentPage - 1),
     currentPage: currentPage,
@@ -132,7 +131,7 @@ const Layout = (): JSX.Element => {
       {dataLoaded ? (
         <>
           <Counter count={queriedData.length} />
-          <Desc />
+          <Description />
           <List albums={view.getPage(currentPage)} />
           {totalPages > 1 ? <Navigation {...navProps}></Navigation> : <Spacer />}
         </>

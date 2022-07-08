@@ -1,11 +1,10 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 
 import { TAGS } from "../common/Tags";
-import ContextProps from "../interfaces/props/ContextProps";
-import { AppContext } from "../services/Context";
+import { useAppContext } from "./Context";
 
-const Desc: FC = (): JSX.Element => {
-  const { labels, tag } = useContext(AppContext) as ContextProps;
+const Description: FC = (): JSX.Element => {
+  const { labels, tag } = useAppContext();
 
   const getDesc = (): string => {
     switch (tag) {
@@ -37,4 +36,4 @@ const Desc: FC = (): JSX.Element => {
   return <span className="fw-lighter fst-italic">{getDesc()}</span>;
 };
 
-export default Desc;
+export default Description;

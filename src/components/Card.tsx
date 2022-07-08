@@ -1,14 +1,13 @@
-import React, { FC, useContext, useRef } from "react";
+import React, { FC, useRef } from "react";
 
+import { ICardProps } from "../interfaces/props/ICardProps";
 import TagList from "./TagList";
-import ContextProps from "../interfaces/props/ContextProps";
-import { CardProps } from "../interfaces/props/CardProps";
-import { AppContext } from "../services/Context";
+import { useAppContext } from "./Context";
 
-const Card: FC<CardProps> = (props): JSX.Element => {
+const Card: FC<ICardProps> = (props): JSX.Element => {
   const { artist, title, year, tags, coverUrl, spotifyUrl } = props.album;
 
-  const { changeQuery } = useContext(AppContext) as ContextProps;
+  const { changeQuery } = useAppContext();
 
   const artistRef = useRef<HTMLDivElement>(null);
   const yearRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
 
-export interface PaginationProps {
+export interface IPaginationProps {
   nextPageHandler: MouseEventHandler;
   previuosPageHandler: MouseEventHandler;
   currentPage: number;

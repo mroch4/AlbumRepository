@@ -1,6 +1,6 @@
 import { ChangeEventHandler } from "react";
 
-export interface CheckboxProps {
+export interface ICheckboxProps {
   checked: boolean;
   onChangeEvent: ChangeEventHandler<HTMLInputElement>;
   label: string;

@@ -1,17 +1,16 @@
-import React, { FC, useContext, useRef } from "react";
+import React, { FC, useRef } from "react";
 
-import ContextProps from "../interfaces/props/ContextProps";
-import { AppContext } from "../services/Context";
+import { useAppContext } from "./Context";
 
 const Input: FC = (): JSX.Element => {
-  const { query, changeQuery } = useContext(AppContext) as ContextProps;
+  const { query, changeQuery } = useAppContext();
 
   const ref = useRef<HTMLInputElement>(null);
 
   return (
     <>
       <input type="text" className="form-control" value={query} ref={ref} onChange={() => changeQuery(ref.current?.value)} />
-      {query != "" ? <button type="button" className="btn-close" aria-label="Close" onClick={() => changeQuery("")}></button> : null}
+      {query !== "" ?? <button type="button" className="btn-close" aria-label="Close" onClick={() => changeQuery("")}></button>}
     </>
   );
 };

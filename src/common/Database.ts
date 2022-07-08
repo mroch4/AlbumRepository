@@ -1,9 +1,8 @@
+import IAlbum from "../interfaces/IAlbum";
+import { TAGS } from "./Tags";
 import { v4 as uuid } from "uuid";
 
-import { TAGS } from "./Tags";
-import Album from "../interfaces/Album";
-
-export const database: Album[] = [
+export const database: IAlbum[] = [
   {
     id: uuid(),
     artist: "Deep Purple",

@@ -1,10 +1,10 @@
+import IAlbum from "../interfaces/IAlbum";
 import SETTINGS from "../common/Settings";
-import Album from "../interfaces/Album";
 
 class Pagination {
-  data: Album[];
+  data: IAlbum[];
 
-  constructor(data: Album[]) {
+  constructor(data: IAlbum[]) {
     this.data = data;
   }
 

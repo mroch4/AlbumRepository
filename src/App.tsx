@@ -1,7 +1,7 @@
-import React from "react";
-import ContextProvider from "./services/Context";
-import Layout from "./components/Layout";
+import ContextProvider from "./components/Context";
 import ContextToggler from "./components/ContextToggler";
+import Layout from "./components/_Layout";
+import React from "react";
 
 function App(): JSX.Element {
   return (

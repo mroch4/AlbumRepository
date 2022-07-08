@@ -1,6 +1,6 @@
-import Settings from "../interfaces/Settings";
+import ISettings from "../interfaces/ISettings";
 
-const settings: Settings = {
+const settings: ISettings = {
   LANGUAGE: 1,
   LIGHT_THEME: false,
   LOADING_TIMEOUT: 1000,

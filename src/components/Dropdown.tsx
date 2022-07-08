@@ -1,11 +1,10 @@
-import React, { FC, useContext, useRef } from "react";
+import React, { FC, useRef } from "react";
 
 import { TAGS } from "../common/Tags";
-import ContextProps from "../interfaces/props/ContextProps";
-import { AppContext } from "../services/Context";
+import { useAppContext } from "./Context";
 
 const Dropdown: FC = (): JSX.Element => {
-  const { tag, changeTag } = useContext(AppContext) as ContextProps;
+  const { tag, changeTag } = useAppContext();
 
   const ref = useRef<HTMLAnchorElement>(null);
 

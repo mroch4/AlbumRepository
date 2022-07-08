@@ -1,13 +1,12 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 
-import ContextProps from "../interfaces/props/ContextProps";
-import { PaginationProps } from "../interfaces/props/PaginationProps";
-import { AppContext } from "../services/Context";
+import { IPaginationProps } from "../interfaces/props/IPaginationProps";
+import { useAppContext } from "./Context";
 
-const Navigation: FC<PaginationProps> = (props): JSX.Element => {
+const Navigation: FC<IPaginationProps> = (props): JSX.Element => {
   const { nextPageHandler, previuosPageHandler, currentPage, totalPages } = props;
 
-  const { lightTheme, labels } = useContext(AppContext) as ContextProps;
+  const { lightTheme, labels } = useAppContext();
 
   return (
     <div className="pagination">

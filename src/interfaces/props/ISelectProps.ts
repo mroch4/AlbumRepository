@@ -1,6 +1,6 @@
 import { ChangeEventHandler } from "react";
 
-export interface SelectProps {
+export interface ISelectProps {
   value: string;
   onChangeEvent: ChangeEventHandler<HTMLSelectElement>;
 }

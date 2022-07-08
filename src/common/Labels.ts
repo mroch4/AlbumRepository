@@ -1,6 +1,6 @@
-import { Labels } from "../interfaces/Labels";
+import { ILabels } from "../interfaces/ILabels";
 
-const labels: Labels[] = [
+const labels: ILabels[] = [
   {
     countryCode: "en",
     values: {

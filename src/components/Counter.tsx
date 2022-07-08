@@ -1,13 +1,12 @@
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 
-import AppContextType from "../interfaces/props/ContextProps";
-import { CounterProps } from "../interfaces/props/CounterProps";
-import { AppContext } from "../services/Context";
+import { ICounterProps } from "../interfaces/props/ICounterProps";
+import { useAppContext } from "./Context";
 
-const Counter: FC<CounterProps> = (props): JSX.Element => {
+const Counter: FC<ICounterProps> = (props): JSX.Element => {
   const { count } = props;
 
-  const { labels } = useContext(AppContext) as AppContextType;
+  const { labels } = useAppContext();
 
   return <h5>{count === 1 ? labels.TOTAL_ONE : labels.TOTAL.replace("##COUNT##", count.toString())}</h5>;
 };
