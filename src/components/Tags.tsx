@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
-import { ITagsProps } from "../interfaces/props/ITagsProps";
+import { ITags } from "./interfaces/ITags";
 import Tag from "./Tag";
 
-const TagList: FC<ITagsProps> = (props): JSX.Element => {
+const Tags: FC<ITags> = (props): JSX.Element => {
   const { tags } = props;
 
   return (
@@ -15,4 +15,4 @@ const TagList: FC<ITagsProps> = (props): JSX.Element => {
   );
 };
 
-export default TagList;
+export default Tags;

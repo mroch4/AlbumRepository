@@ -1,7 +1,7 @@
 import React, { FC, useRef } from "react";
 
 import { TAGS } from "../common/Tags";
-import { useAppContext } from "./Context";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Dropdown: FC = (): JSX.Element => {
   const { tag, changeTag } = useAppContext();

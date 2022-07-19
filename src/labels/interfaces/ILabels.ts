@@ -1,9 +1,4 @@
 export interface ILabels {
-  countryCode: string;
-  values: ILabelsValues;
-}
-
-export interface ILabelsValues {
   ARTIST_ASCENDING: string;
   ARTIST_DESCENDING: string;
   LIGHT_THEME: string;

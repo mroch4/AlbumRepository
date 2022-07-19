@@ -1,11 +1,28 @@
 import React, { FC } from "react";
 
-import { IContextProviderProps } from "../interfaces/props/IContextProviderProps";
-import LABELS from "../common/Labels";
-import { useAppContext } from "./Context";
+import Checkbox from "./partials/_Checkbox";
+import { ICheckbox } from "./interfaces/ICheckbox";
+import { IContextProvider } from "../contexts/interfaces/IContextProvider";
+import LABELS from "../labels/Labels";
+import { useAppContext } from "../hooks/useAppContext";
 
-const ContextToggler: FC<IContextProviderProps> = ({ children }) => {
-  const { lightTheme, changeTheme, countryCode, changeCountryCode, labels, changeQuery, changeTag } = useAppContext();
+const Header: FC<IContextProvider> = ({ children }) => {
+  const { lightTheme, changeTheme, intl, changeIntl, labels, changeQuery, changeTag } = useAppContext();
+
+  const isPL = intl === LABELS[0].intl;
+  const handleLanguageChange = () => {
+    if (isPL) {
+      changeIntl(LABELS[1].intl);
+    } else {
+      changeIntl(LABELS[0].intl);
+    }
+  };
+
+  const languageProps: ICheckbox = {
+    checked: isPL,
+    onChangeEvent: () => handleLanguageChange(),
+    label: "English",
+  };
 
   const handleThemeChange = () => {
     changeTheme(!lightTheme);
@@ -22,13 +39,10 @@ const ContextToggler: FC<IContextProviderProps> = ({ children }) => {
     }
   };
 
-  const isPL = countryCode === LABELS[0].countryCode;
-  const handleLanguageChange = () => {
-    if (isPL) {
-      changeCountryCode(LABELS[1].countryCode);
-    } else {
-      changeCountryCode(LABELS[0].countryCode);
-    }
+  const themeProps: ICheckbox = {
+    checked: lightTheme,
+    onChangeEvent: () => handleThemeChange(),
+    label: labels.LIGHT_THEME,
   };
 
   const handleLogoClick = () => {
@@ -43,14 +57,8 @@ const ContextToggler: FC<IContextProviderProps> = ({ children }) => {
           Albums Repository
         </span>
         <div className="form-check d-flex flex-column">
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" checked={isPL} onChange={handleLanguageChange} />
-            English
-          </label>
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" checked={lightTheme} onChange={handleThemeChange} />
-            {labels.LIGHT_THEME}
-          </label>
+          <Checkbox {...languageProps} />
+          <Checkbox {...themeProps} />
         </div>
       </div>
       {children}
@@ -58,4 +66,4 @@ const ContextToggler: FC<IContextProviderProps> = ({ children }) => {
   );
 };
 
-export default ContextToggler;
+export default Header;

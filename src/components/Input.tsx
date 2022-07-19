@@ -1,6 +1,6 @@
 import React, { FC, useRef } from "react";
 
-import { useAppContext } from "./Context";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Input: FC = (): JSX.Element => {
   const { query, changeQuery } = useAppContext();

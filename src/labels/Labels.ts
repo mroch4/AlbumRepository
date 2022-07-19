@@ -1,9 +1,9 @@
-import { ILabels } from "../interfaces/ILabels";
+import { ILabelsPack } from "./interfaces/ILabelsPack";
 
-const labels: ILabels[] = [
+const LABELS: ILabelsPack[] = [
   {
-    countryCode: "en",
-    values: {
+    intl: "en-EN",
+    labels: {
       ARTIST_ASCENDING: "Sort by artist name (ascending)",
       ARTIST_DESCENDING: "Sort by artist name (descending)",
       LIGHT_THEME: "Light mode",
@@ -36,8 +36,8 @@ const labels: ILabels[] = [
     },
   },
   {
-    countryCode: "pl",
-    values: {
+    intl: "pl-PL",
+    labels: {
       ARTIST_ASCENDING: "Sortuj wg wykonawcy (rosnąco)",
       ARTIST_DESCENDING: "Sortuj wg wykonawcy (malejąco)",
       LIGHT_THEME: "Tryb jasny",
@@ -71,4 +71,4 @@ const labels: ILabels[] = [
   },
 ];
 
-export default labels;
+export default LABELS;

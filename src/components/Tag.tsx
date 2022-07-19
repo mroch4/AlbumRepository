@@ -1,9 +1,9 @@
 import React, { FC, useRef } from "react";
 
-import { ITagProps } from "../interfaces/props/ITagsProps";
-import { useAppContext } from "./Context";
+import { ITag } from "./interfaces/ITag";
+import { useAppContext } from "../hooks/useAppContext";
 
-const Tag: FC<ITagProps> = (props): JSX.Element => {
+const Tag: FC<ITag> = (props): JSX.Element => {
   const { tag } = props;
 
   const { changeTag } = useAppContext();

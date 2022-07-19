@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
-import { ICounterProps } from "../interfaces/props/ICounterProps";
-import { useAppContext } from "./Context";
+import { ICounter } from "./interfaces/ICounter";
+import { useAppContext } from "../hooks/useAppContext";
 
-const Counter: FC<ICounterProps> = (props): JSX.Element => {
+const Counter: FC<ICounter> = (props): JSX.Element => {
   const { count } = props;
 
   const { labels } = useAppContext();

@@ -1,22 +1,22 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 
-import Checkbox from "./_partials/_Checkbox";
+import Checkbox from "./partials/_Checkbox";
+import { Container } from "react-bootstrap";
 import Counter from "./Counter";
-import Description from "./Description";
 import Dropdown from "./Dropdown";
-import IAlbum from "../interfaces/IAlbum";
-import { ICheckboxProps } from "../interfaces/props/ICheckboxProps";
-import { IPaginationProps } from "../interfaces/props/IPaginationProps";
-import { ISelectProps } from "../interfaces/props/ISelectProps";
+import IAlbum from "../common/interfaces/IAlbum";
+import { ICheckbox } from "./interfaces/ICheckbox";
+import { IPagination } from "./interfaces/IPagination";
+import { ISelect } from "./interfaces/ISelect";
+import Info from "./Info";
 import Input from "./Input";
 import List from "./List";
 import Loader from "./Loader";
 import Navigation from "./Navigation";
 import Pagination from "../services/Pagination";
-import SETTINGS from "../common/Settings";
 import Select from "./Select";
 import Spacer from "./Spacer";
-import { useAppContext } from "./Context";
+import { useAppContext } from "../hooks/useAppContext";
 
 const Layout = (): JSX.Element => {
   const { albumsDatabase, labels, query, tag } = useAppContext();
@@ -25,15 +25,15 @@ const Layout = (): JSX.Element => {
   const [queriedData, setQueriedData] = useState(albumsDatabase);
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const [searchByArtist, setSearchByArtist] = useState<boolean>(SETTINGS.SEARCHBYARTIST_ONLOAD);
-  const [searchByTitle, setSearchByTitle] = useState<boolean>(SETTINGS.SEARCHBYTITLE_ONLOAD);
-  const [searchByYear, setSearchByYear] = useState<boolean>(SETTINGS.SEARCHBYYEAR_ONLOAD);
+  const [searchByArtist, setSearchByArtist] = useState<boolean>(true);
+  const [searchByTitle, setSearchByTitle] = useState<boolean>(true);
+  const [searchByYear, setSearchByYear] = useState<boolean>(true);
   const [sortingOption, setSortingOption] = useState<string>(labels.YEAR_DESCENDING);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setDataLoaded(true);
-    }, SETTINGS.LOADING_TIMEOUT);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -83,32 +83,32 @@ const Layout = (): JSX.Element => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  const artistCheckboxProps: ICheckboxProps = {
+  const artistCheckboxProps: ICheckbox = {
     checked: searchByArtist,
     onChangeEvent: () => setSearchByArtist(!searchByArtist),
     label: labels.SEARCHBYARTIST,
   };
 
-  const titleCheckboxProps: ICheckboxProps = {
+  const titleCheckboxProps: ICheckbox = {
     checked: searchByTitle,
     onChangeEvent: () => setSearchByTitle(!searchByTitle),
     label: labels.SEARCHBYTITLE,
   };
 
-  const yearCheckboxProps: ICheckboxProps = {
+  const yearCheckboxProps: ICheckbox = {
     checked: searchByYear,
     onChangeEvent: () => setSearchByYear(!searchByYear),
     label: labels.SEARCHBYYEAR,
   };
 
-  const selectProps: ISelectProps = {
+  const selectProps: ISelect = {
     value: sortingOption,
     onChangeEvent: (e: ChangeEvent<HTMLSelectElement>) => setSortingOption(e.currentTarget.value),
   };
 
   const view = new Pagination(queriedData);
   const totalPages = view.getTotalPages();
-  const navProps: IPaginationProps = {
+  const navProps: IPagination = {
     nextPageHandler: () => setCurrentPage(currentPage + 1),
     previuosPageHandler: () => setCurrentPage(currentPage - 1),
     currentPage: currentPage,
@@ -116,7 +116,7 @@ const Layout = (): JSX.Element => {
   };
 
   return (
-    <div className="container mt-2">
+    <Container className="mt-2">
       <div className="input-group">
         <Dropdown />
         <Input />
@@ -131,14 +131,14 @@ const Layout = (): JSX.Element => {
       {dataLoaded ? (
         <>
           <Counter count={queriedData.length} />
-          <Description />
+          <Info />
           <List albums={view.getPage(currentPage)} />
           {totalPages > 1 ? <Navigation {...navProps}></Navigation> : <Spacer />}
         </>
       ) : (
         <Loader />
       )}
-    </div>
+    </Container>
   );
 };
 

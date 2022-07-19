@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 
 import Card from "./Card";
-import IAlbum from "../interfaces/IAlbum";
-import { IListProps } from "../interfaces/props/IListProps";
+import IAlbum from "../common/interfaces/IAlbum";
+import { IList } from "./interfaces/IList";
 
-const List: FC<IListProps> = (props): JSX.Element => {
+const List: FC<IList> = (props): JSX.Element => {
   const { albums } = props;
 
   return (

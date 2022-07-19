@@ -1,10 +1,10 @@
 import React, { FC, useRef } from "react";
 
-import { ICardProps } from "../interfaces/props/ICardProps";
-import TagList from "./TagList";
-import { useAppContext } from "./Context";
+import { ICard } from "./interfaces/ICard";
+import TagList from "./Tags";
+import { useAppContext } from "../hooks/useAppContext";
 
-const Card: FC<ICardProps> = (props): JSX.Element => {
+const Card: FC<ICard> = (props): JSX.Element => {
   const { artist, title, year, tags, coverUrl, spotifyUrl } = props.album;
 
   const { changeQuery } = useAppContext();

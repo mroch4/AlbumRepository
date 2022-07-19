@@ -1,14 +1,14 @@
-import ContextProvider from "./components/Context";
-import ContextToggler from "./components/ContextToggler";
+import ContextProvider from "./contexts/Context";
+import Header from "./components/Header";
 import Layout from "./components/_Layout";
 import React from "react";
 
 function App(): JSX.Element {
   return (
     <ContextProvider>
-      <ContextToggler>
+      <Header>
         <Layout />
-      </ContextToggler>
+      </Header>
     </ContextProvider>
   );
 }

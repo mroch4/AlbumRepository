@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
-import { IPaginationProps } from "../interfaces/props/IPaginationProps";
-import { useAppContext } from "./Context";
+import { IPagination } from "./interfaces/IPagination";
+import { useAppContext } from "../hooks/useAppContext";
 
-const Navigation: FC<IPaginationProps> = (props): JSX.Element => {
+const Navigation: FC<IPagination> = (props): JSX.Element => {
   const { nextPageHandler, previuosPageHandler, currentPage, totalPages } = props;
 
   const { lightTheme, labels } = useAppContext();

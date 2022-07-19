@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
-import { ISelectProps } from "../interfaces/props/ISelectProps";
-import { useAppContext } from "./Context";
+import { ISelect } from "./interfaces/ISelect";
+import { useAppContext } from "../hooks/useAppContext";
 
-const Select: FC<ISelectProps> = (props): JSX.Element => {
+const Select: FC<ISelect> = (props): JSX.Element => {
   const { value, onChangeEvent } = props;
 
   const { labels } = useAppContext();
