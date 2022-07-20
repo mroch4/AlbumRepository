@@ -30,6 +30,26 @@ const Layout = (): JSX.Element => {
   const [searchByYear, setSearchByYear] = useState<boolean>(true);
   const [sortingOption, setSortingOption] = useState<string>(labels.YEAR_DESCENDING);
 
+  // const setOfArtist = new Set(
+  //   albumsDatabase
+  //     .map((item) => item.artist)
+  //     .sort((a, b) => {
+  //       if (a < b) return -1;
+  //       if (a > b) return 1;
+  //       return 0;
+  //     })
+  // );
+  // console.log(setOfArtist);
+
+  // const setOfYears = new Set(
+  //   albumsDatabase
+  //     .map((item) => item.year)
+  //     .sort((a, b) => {
+  //       return a - b;
+  //     })
+  // );
+  // console.log(setOfYears);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setDataLoaded(true);
